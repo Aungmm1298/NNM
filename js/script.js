@@ -121,6 +121,33 @@
         }
     }
 
+    // ================================
+    // Mobile Nav Toggle
+    // ================================
+    var $toggle = $('.nav-toggle');
+    var $nav    = $('.main-nav');
+
+    $toggle.on('click', function() {
+        var isOpen = $nav.hasClass('is-open');
+        $nav.toggleClass('is-open', !isOpen);
+        $toggle.toggleClass('open', !isOpen);
+        $toggle.attr('aria-expanded', String(!isOpen));
+    });
+
+    // Close nav when a link is clicked (smooth scroll already handles navigation)
+    $nav.find('.nav-link').on('click', function() {
+        $nav.removeClass('is-open');
+        $toggle.removeClass('open').attr('aria-expanded', 'false');
+    });
+
+    // Close nav when clicking outside the header
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.site-header').length) {
+            $nav.removeClass('is-open');
+            $toggle.removeClass('open').attr('aria-expanded', 'false');
+        }
+    });
+
     $(document).ready(function() { initReveal(); });
     
 })($);
