@@ -98,6 +98,17 @@ a:hover {
     max-width: 1120px;
 }
 
+/* Snow canvas */
+#snow-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
 /* Header */
 .site-header {
     position: sticky;

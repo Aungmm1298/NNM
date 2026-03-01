@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <canvas id="snow-canvas"></canvas>
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
@@ -516,6 +517,72 @@
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-    
+
+    <!-- Snow Animation -->
+    <script>
+    (function() {
+        var canvas = document.getElementById('snow-canvas');
+        var ctx = canvas.getContext('2d');
+        var flakes = [];
+        var NUM = 120;
+
+        function resize() {
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function rand(min, max) { return Math.random() * (max - min) + min; }
+
+        function createFlake() {
+            return {
+                x:     rand(0, canvas.width),
+                y:     rand(-canvas.height, 0),
+                r:     rand(1.5, 4.5),
+                speed: rand(0.8, 2.8),
+                drift: rand(-0.4, 0.4),
+                opacity: rand(0.35, 0.85),
+                wobble: rand(0, Math.PI * 2),
+                wobbleSpeed: rand(0.008, 0.022)
+            };
+        }
+
+        for (var i = 0; i < NUM; i++) {
+            var f = createFlake();
+            f.y = rand(0, canvas.height); // scatter initial positions
+            flakes.push(f);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            flakes.forEach(function(f) {
+                f.wobble += f.wobbleSpeed;
+                f.x += f.drift + Math.sin(f.wobble) * 0.5;
+                f.y += f.speed;
+
+                if (f.y > canvas.height + 10) {
+                    var nf = createFlake();
+                    f.x = nf.x; f.y = -10;
+                    f.r = nf.r; f.speed = nf.speed;
+                    f.drift = nf.drift; f.opacity = nf.opacity;
+                }
+                if (f.x > canvas.width + 10)  f.x = -10;
+                if (f.x < -10) f.x = canvas.width + 10;
+
+                ctx.beginPath();
+                var grad = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r);
+                grad.addColorStop(0, 'rgba(255,255,255,' + f.opacity + ')');
+                grad.addColorStop(1, 'rgba(200,220,255,0)');
+                ctx.fillStyle = grad;
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+    </script>
+
 </body>
 </html>
