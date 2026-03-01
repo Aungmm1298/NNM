@@ -16,9 +16,17 @@
         }
     });
     
-    // Scroll Spy
+    // Scroll Spy + Floating Nav
     $(window).on('scroll', function() {
         var scrollPos = $(document).scrollTop();
+
+        // Floating nav toggle
+        if (scrollPos > 60) {
+            $('.site-header').addClass('scrolled');
+        } else {
+            $('.site-header').removeClass('scrolled');
+        }
+
         $('.section').each(function() {
             var currLink = $(this);
             if (currLink.position().top <= scrollPos + 100 && 
