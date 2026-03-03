@@ -458,6 +458,35 @@
                         <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener"><span>Naing Naing Maw</span></a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Form powered by Supabase -->
+                <div class="contact-form-wrap mt-5">
+                    <h4>Send a Message</h4>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="contact-submit">
+                            <span id="submit-loading"></span>
+                            <span id="submit-text">Send Message</span>
+                        </button>
+                        <div id="form-success" class="form-alert success">
+                            <i class="fas fa-check-circle"></i> Message sent! I&rsquo;ll get back to you soon.
+                        </div>
+                        <div id="form-error" class="form-alert error">
+                            <i class="fas fa-exclamation-circle"></i> Failed to send. Please try again or email me directly.
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -475,6 +504,9 @@
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+
+    <!-- Supabase Contact Form -->
+    <script src="js/supabase.js"></script>
 
     <!-- Snow Animation -->
     <script>
