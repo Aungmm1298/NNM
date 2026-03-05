@@ -152,28 +152,40 @@
     // ================================
     // Mobile Nav Toggle
     // ================================
-    var $toggle = $('.nav-toggle');
-    var $nav    = $('.main-nav');
+    var $toggle   = $('.nav-toggle');
+    var $nav      = $('.main-nav');
+    var $backdrop = $('.nav-backdrop');
 
-    $toggle.on('click', function() {
-        var isOpen = $nav.hasClass('is-open');
-        $nav.toggleClass('is-open', !isOpen);
-        $toggle.toggleClass('open', !isOpen);
-        $toggle.attr('aria-expanded', String(!isOpen));
-    });
+    function openNav() {
+        $nav.addClass('is-open');
+        $toggle.addClass('open').attr('aria-expanded', 'true');
+        $backdrop.addClass('is-visible');
+        $('body').css('overflow', 'hidden');
+    }
 
-    // Close nav when a link is clicked (smooth scroll already handles navigation)
-    $nav.find('.nav-link').on('click', function() {
+    function closeNav() {
         $nav.removeClass('is-open');
         $toggle.removeClass('open').attr('aria-expanded', 'false');
+        $backdrop.removeClass('is-visible');
+        $('body').css('overflow', '');
+    }
+
+    $toggle.on('click', function() {
+        $nav.hasClass('is-open') ? closeNav() : openNav();
     });
 
-    // Close nav when clicking outside the header
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.site-header').length) {
-            $nav.removeClass('is-open');
-            $toggle.removeClass('open').attr('aria-expanded', 'false');
-        }
+    // Close button inside panel
+    $(document).on('click', '.nav-close', function() { closeNav(); });
+
+    // Close when a nav link is clicked
+    $nav.find('.nav-link').on('click', function() { closeNav(); });
+
+    // Close on backdrop tap
+    $backdrop.on('click', function() { closeNav(); });
+
+    // Close on Escape key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') closeNav();
     });
 
     $(document).ready(function() {

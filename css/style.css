@@ -229,9 +229,10 @@ a:hover { color: var(--rg-light); text-decoration: none; }
         inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.site-header, .main-content { position: relative; z-index: 10; }
+.nav-toggle {
+    display: none;
 
-.header-inner {
+.site-header, .main-content { position: relative; z-index: 10; }
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1492,8 +1493,29 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 /* ----------------------------------------
    18. Mobile Nav Toggle
 ---------------------------------------- */
-.nav-toggle {
-    display: none;
+/* ----------------------------------------
+   Mobile Nav Backdrop
+---------------------------------------- */
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 6, 20, 0.72);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease-smooth);
+}
+.nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Mobile nav panel (hidden on desktop) ── */
+.mobile-nav-header,
+.mobile-nav-links,
+.mobile-nav-footer { display: none; }
     flex-direction: column;
     justify-content: space-between;
     width: 28px; height: 20px;
@@ -1566,56 +1588,145 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .section { padding: 72px 0; }
     .hero-section { padding-top: 96px; padding-bottom: 56px; }
 
-    /* ── Mobile Nav: reliable slide-down panel (replaces clip-path) ── */
+    /* ── Mobile Nav: full-height slide-in panel from right ── */
     .header-cta  { display: none; }
     .nav-toggle  { display: flex; z-index: 1100; }
     .brand-title { display: none; }
 
+    /* Reveal inner mobile nav sections */
+    .mobile-nav-header,
+    .mobile-nav-links,
+    .mobile-nav-footer { display: flex; }
+
     .main-nav {
         position: fixed;
-        top: 68px;
-        left: 12px;
-        right: 12px;
-        bottom: auto;
+        top: 0; right: 0;
+        width: min(300px, 88vw);
+        height: 100vh;
+        height: 100dvh;
         flex-direction: column;
+        justify-content: space-between;
         align-items: stretch;
-        gap: 4px;
-        padding: 16px 12px 20px;
-        background: rgba(8, 12, 34, 0.98);
-        backdrop-filter: blur(28px) saturate(180%);
-        -webkit-backdrop-filter: blur(28px) saturate(180%);
-        border: 1px solid var(--border-med);
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(108,140,232,0.08);
+        gap: 0;
+        padding: 0;
+        background: var(--surface);
+        border-left: 1px solid var(--border-med);
+        box-shadow: -20px 0 80px rgba(0,0,0,0.6);
         z-index: 1050;
-        opacity: 0;
-        transform: translateY(-12px) scale(0.97);
+        transform: translateX(100%);
         pointer-events: none;
-        transition:
-            opacity   0.28s var(--ease-smooth),
-            transform 0.28s var(--ease-smooth);
+        transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
     }
     .main-nav.is-open {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateX(0);
         pointer-events: all;
     }
-    .main-nav .nav-link {
-        font-size: 1rem;
-        font-family: 'DM Sans', sans-serif;
-        font-weight: 500;
-        padding: 13px 20px;
-        border-radius: 12px;
-        text-align: left;
-        color: var(--text-sub);
-        transition: background 0.2s, color 0.2s;
+
+    /* Panel header row */
+    .mobile-nav-header {
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
         border-bottom: 1px solid var(--border-dim);
+        flex-shrink: 0;
     }
-    .main-nav .nav-link:last-child { border-bottom: none; }
+    .mobile-nav-brand {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.01em;
+    }
+    .nav-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px; height: 36px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        color: var(--text-sub);
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        flex-shrink: 0;
+    }
+    .nav-close:hover { background: var(--rg-pale); color: var(--rg-light); }
+
+    /* Nav links list */
+    .mobile-nav-links {
+        flex-direction: column;
+        flex: 1;
+        padding: 12px 16px;
+        gap: 4px;
+    }
+    .main-nav .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 14px 18px;
+        border-radius: 14px;
+        color: var(--text-sub);
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .main-nav .nav-link i {
+        width: 20px;
+        text-align: center;
+        font-size: 0.88rem;
+        color: var(--rg);
+        opacity: 0.75;
+        flex-shrink: 0;
+    }
     .main-nav .nav-link:hover,
     .main-nav .nav-link.active {
         background: var(--rg-pale);
+        color: var(--text);
+        transform: translateX(4px);
+    }
+    .main-nav .nav-link:hover i,
+    .main-nav .nav-link.active i { opacity: 1; }
+    /* Remove desktop border-bottom from links */
+    .main-nav .nav-link:last-child { border-bottom: none; }
+
+    /* Panel footer */
+    .mobile-nav-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 20px 24px 32px;
+        border-top: 1px solid var(--border-dim);
+        flex-shrink: 0;
+    }
+    .mobile-nav-cta {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.92rem;
+        padding: 13px 20px;
+    }
+    .mobile-nav-socials {
+        display: flex;
+        gap: 12px;
+    }
+    .mobile-nav-socials a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--text-sub);
+        font-size: 0.85rem;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .mobile-nav-socials a:hover {
+        background: var(--rg-pale);
         color: var(--rg-light);
+        border-color: var(--rg);
     }
 
     .site-header.scrolled { margin: 0 10px; border-radius: 20px; }
