@@ -1640,8 +1640,9 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .hero-section { padding-top: 96px; padding-bottom: 56px; }
 
     /* ── Mobile Nav ── */
+    .site-header { z-index: 9000; }
     .header-cta  { display: none; }
-    .nav-toggle  { display: flex; z-index: 1100; }
+    .nav-toggle  { display: flex; z-index: 9100; }
     .brand-title { display: none; }
     /* Override 3-col grid → brand + toggle only */
     .header-inner {
@@ -1664,14 +1665,14 @@ textarea.form-control { resize: vertical; min-height: 120px; }
         flex-direction: column;
         gap: 0;
         padding: 0;
-        background: var(--surface);
+        background: #0d1229;
         border: 1px solid var(--border-med);
         border-radius: 20px;
         box-shadow:
-            0 20px 60px rgba(0,0,0,0.55),
-            0 0 0 1px rgba(108,140,232,0.06),
-            inset 0 1px 0 rgba(255,255,255,0.04);
-        z-index: 1050;
+            0 20px 60px rgba(0,0,0,0.80),
+            0 0 0 1px rgba(108,140,232,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.06);
+        z-index: 9050;
         opacity: 0;
         transform: scale(0.90) translateY(-10px);
         transform-origin: top right;
