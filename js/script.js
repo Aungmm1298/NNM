@@ -152,21 +152,18 @@
     // ================================
     // Mobile Nav Toggle
     // ================================
-    var $toggle   = $('.nav-toggle');
-    var $nav      = $('.main-nav');
-    var $backdrop = $('.nav-backdrop');
+    var $toggle = $('.nav-toggle');
+    var $nav    = $('.main-nav');
 
     function openNav() {
         $nav.addClass('is-open');
         $toggle.addClass('open').attr('aria-expanded', 'true');
-        $backdrop.addClass('is-visible');
         $('body').css('overflow', 'hidden');
     }
 
     function closeNav() {
         $nav.removeClass('is-open');
         $toggle.removeClass('open').attr('aria-expanded', 'false');
-        $backdrop.removeClass('is-visible');
         $('body').css('overflow', '');
     }
 
@@ -174,16 +171,15 @@
         $nav.hasClass('is-open') ? closeNav() : openNav();
     });
 
-    // Close button inside panel
-    $(document).on('click', '.nav-close', function() { closeNav(); });
-
-    // Close when a nav link is clicked
+    // Close when a nav link is tapped
     $nav.find('.nav-link').on('click', function() { closeNav(); });
 
-    // Close on backdrop tap
-    $backdrop.on('click', function() { closeNav(); });
+    // Tap on the overlay background (not on a link) closes nav
+    $nav.on('click', function(e) {
+        if ($(e.target).is($nav)) closeNav();
+    });
 
-    // Close on Escape key
+    // Escape key closes nav
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') closeNav();
     });
