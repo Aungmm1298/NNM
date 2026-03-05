@@ -1589,6 +1589,16 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     }
     .contact-form-wrap { padding: 30px 28px; }
 
+    /* Hero: centre-align when stacked in single column */
+    .hero-text { text-align: center; }
+    .hero-actions { justify-content: center; }
+    .hero-metrics { justify-items: center; }
+    .eyebrow { justify-content: center; }
+
+    /* About bio: remove right padding, height auto for card */
+    .about-bio { padding-right: 0; }
+    .about-card { height: auto; }
+
     /* Header brand title – hide on smaller screens */
     .brand-title { display: none; }
 
@@ -1669,8 +1679,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     }
     .timeline-body { padding: 18px 20px; }
 
-    /* About card */
+    /* About */
     .about-block { margin-top: 48px; padding-top: 40px; }
+    .about-bio p { font-size: 0.93rem; line-height: 1.75; }
+    .about-card { height: auto; }
 
     /* Awards */
     .award-item { padding: 22px 20px; }
@@ -1723,7 +1735,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .process-step    { padding: 18px 16px; }
     .exp-content     { padding: 16px 14px; }
     .timeline-body   { padding: 16px 16px; }
-    .about-card      { padding: 20px 16px; }
+    .about-card      { padding: 20px 16px; height: auto; }
+    .about-bio p     { font-size: 0.90rem; line-height: 1.70; margin-bottom: 0.9rem; }
 
     /* Contact */
     .contact-card        { padding: 22px 16px; }
