@@ -158,28 +158,27 @@
     function openNav() {
         $nav.addClass('is-open');
         $toggle.addClass('open').attr('aria-expanded', 'true');
-        $('body').css('overflow', 'hidden');
     }
 
     function closeNav() {
         $nav.removeClass('is-open');
         $toggle.removeClass('open').attr('aria-expanded', 'false');
-        $('body').css('overflow', '');
     }
 
-    $toggle.on('click', function() {
+    $toggle.on('click', function(e) {
+        e.stopPropagation();
         $nav.hasClass('is-open') ? closeNav() : openNav();
     });
 
-    // Close when a nav link is tapped
+    // Close when a link is tapped
     $nav.find('.nav-link').on('click', function() { closeNav(); });
 
-    // Tap on the overlay background (not on a link) closes nav
-    $nav.on('click', function(e) {
-        if ($(e.target).is($nav)) closeNav();
+    // Close when clicking anywhere outside the nav/toggle
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.main-nav, .nav-toggle').length) closeNav();
     });
 
-    // Escape key closes nav
+    // Escape key
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') closeNav();
     });

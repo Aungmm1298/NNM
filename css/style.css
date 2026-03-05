@@ -1493,8 +1493,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 /* ----------------------------------------
    18. Mobile Nav Toggle
 ---------------------------------------- */
-/* Mobile overlay footer hidden on desktop */
-.mobile-overlay-footer { display: none; }
+/* Mobile overlay footer — not used in pill style */
+.mobile-overlay-footer { display: none !important; }
 
 .nav-toggle {
     display: none;
@@ -1570,100 +1570,57 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .section { padding: 72px 0; }
     .hero-section { padding-top: 96px; padding-bottom: 56px; }
 
-    /* ── Mobile Nav: fullscreen overlay with stagger ── */
+    /* ── Mobile Nav: compact pill dropdown ── */
     .header-cta  { display: none; }
     .nav-toggle  { display: flex; z-index: 1100; }
     .brand-title { display: none; }
-    .mobile-overlay-footer { display: flex; gap: 16px; margin-top: 36px; }
-    .mobile-overlay-footer a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        border: 1px solid var(--border-med);
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-    .mobile-overlay-footer a:hover {
-        color: var(--rg-light);
-        border-color: var(--rg);
-        background: var(--rg-pale);
-    }
+
+    /* Position nav relative to header-inner so it anchors to the toggle */
+    .header-inner { position: relative; }
 
     .main-nav {
-        position: fixed;
-        inset: 0;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        width: 200px;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0;
-        background: rgba(5, 8, 22, 0.97);
-        backdrop-filter: blur(32px) saturate(180%);
-        -webkit-backdrop-filter: blur(32px) saturate(180%);
+        gap: 2px;
+        padding: 8px;
+        background: rgba(10, 14, 38, 0.96);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid var(--border-med);
+        border-radius: 18px;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(108,140,232,0.06);
         z-index: 1050;
         opacity: 0;
+        transform: scale(0.92) translateY(-8px);
+        transform-origin: top right;
         pointer-events: none;
-        transition: opacity 0.4s var(--ease-smooth);
+        transition:
+            opacity   0.22s var(--ease-smooth),
+            transform 0.22s var(--ease-smooth);
     }
     .main-nav.is-open {
         opacity: 1;
+        transform: scale(1) translateY(0);
         pointer-events: all;
     }
-
-    /* Each link — hidden until open */
     .main-nav .nav-link {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(1.8rem, 6vw, 2.6rem);
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        color: rgba(232, 236, 248, 0.35);
-        padding: 8px 0;
-        line-height: 1.2;
-        text-decoration: none;
-        opacity: 0;
-        transform: translateY(32px);
-        transition:
-            opacity   0.55s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-            color     0.25s ease;
-        position: relative;
-    }
-    .main-nav .nav-link em {
-        font-style: normal;
+        display: block;
         font-family: 'DM Sans', sans-serif;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        color: var(--rg);
-        opacity: 0.7;
-        min-width: 28px;
-        align-self: center;
-        margin-top: 4px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        padding: 10px 16px;
+        border-radius: 12px;
+        color: var(--text-sub);
+        transition: background 0.18s, color 0.18s;
+        white-space: nowrap;
     }
     .main-nav .nav-link:hover,
-    .main-nav .nav-link.active { color: var(--text); }
-    .main-nav .nav-link.active em { opacity: 1; }
-
-    /* Stagger in when open */
-    .main-nav.is-open .nav-link:nth-child(1) { opacity:1; transform:none; transition-delay: 0.06s; }
-    .main-nav.is-open .nav-link:nth-child(2) { opacity:1; transform:none; transition-delay: 0.12s; }
-    .main-nav.is-open .nav-link:nth-child(3) { opacity:1; transform:none; transition-delay: 0.18s; }
-    .main-nav.is-open .nav-link:nth-child(4) { opacity:1; transform:none; transition-delay: 0.24s; }
-    .main-nav.is-open .nav-link:nth-child(5) { opacity:1; transform:none; transition-delay: 0.30s; }
-    .main-nav.is-open .nav-link:nth-child(6) { opacity:1; transform:none; transition-delay: 0.36s; }
-    .mobile-overlay-footer {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease 0.40s, transform 0.5s ease 0.40s;
-    }
-    .main-nav.is-open .mobile-overlay-footer {
-        opacity: 1;
-        transform: none;
+    .main-nav .nav-link.active {
+        background: var(--rg-pale);
+        color: var(--rg-light);
     }
 
     .site-header.scrolled { margin: 0 10px; border-radius: 20px; }
