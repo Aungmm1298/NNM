@@ -170,8 +170,8 @@
         $nav.hasClass('is-open') ? closeNav() : openNav();
     });
 
-    // Close when a link is tapped
-    $nav.find('.nav-link').on('click', function() { closeNav(); });
+    // Close when a link or mobile CTA is tapped
+    $nav.find('.nav-link, .nav-mobile-cta').on('click', function() { closeNav(); });
 
     // Close when clicking anywhere outside the nav/toggle
     $(document).on('click', function(e) {

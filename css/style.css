@@ -1493,8 +1493,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 /* ----------------------------------------
    18. Mobile Nav Toggle
 ---------------------------------------- */
-/* Mobile overlay footer — not used in pill style */
-.mobile-overlay-footer { display: none !important; }
+/* Desktop nav: icons & mobile-only elements hidden */
+.main-nav .nav-link i,
+.nav-mobile-label,
+.nav-mobile-cta { display: none; }
 
 .nav-toggle {
     display: none;
@@ -1570,58 +1572,118 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .section { padding: 72px 0; }
     .hero-section { padding-top: 96px; padding-bottom: 56px; }
 
-    /* ── Mobile Nav: compact pill dropdown ── */
+    /* ── Mobile Nav ── */
     .header-cta  { display: none; }
     .nav-toggle  { display: flex; z-index: 1100; }
     .brand-title { display: none; }
-
-    /* Position nav relative to header-inner so it anchors to the toggle */
     .header-inner { position: relative; }
 
+    /* Show mobile-only nav elements */
+    .nav-mobile-label { display: block; }
+    .nav-mobile-cta   { display: flex; }
+    .main-nav .nav-link i { display: block; }
+
+    /* Dropdown card — visually distinct from desktop pill links */
     .main-nav {
         position: absolute;
-        top: calc(100% + 10px);
+        top: calc(100% + 12px);
         right: 0;
-        width: 200px;
+        width: 240px;
         flex-direction: column;
-        gap: 2px;
-        padding: 8px;
-        background: rgba(10, 14, 38, 0.96);
-        backdrop-filter: blur(24px) saturate(180%);
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        gap: 0;
+        padding: 0;
+        background: var(--surface);
         border: 1px solid var(--border-med);
-        border-radius: 18px;
-        box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(108,140,232,0.06);
+        border-radius: 20px;
+        box-shadow:
+            0 20px 60px rgba(0,0,0,0.55),
+            0 0 0 1px rgba(108,140,232,0.06),
+            inset 0 1px 0 rgba(255,255,255,0.04);
         z-index: 1050;
         opacity: 0;
-        transform: scale(0.92) translateY(-8px);
+        transform: scale(0.90) translateY(-10px);
         transform-origin: top right;
         pointer-events: none;
+        overflow: hidden;
         transition:
-            opacity   0.22s var(--ease-smooth),
-            transform 0.22s var(--ease-smooth);
+            opacity   0.25s var(--ease-smooth),
+            transform 0.25s var(--ease-smooth);
     }
     .main-nav.is-open {
         opacity: 1;
         transform: scale(1) translateY(0);
         pointer-events: all;
     }
-    .main-nav .nav-link {
-        display: block;
+
+    /* "Navigation" header label */
+    .nav-mobile-label {
+        padding: 12px 18px 10px;
         font-family: 'DM Sans', sans-serif;
-        font-size: 0.92rem;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border-bottom: 1px solid var(--border-dim);
+    }
+
+    /* Icon + label rows */
+    .main-nav .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.91rem;
         font-weight: 500;
-        padding: 10px 16px;
-        border-radius: 12px;
+        padding: 12px 18px;
+        border-radius: 0;
         color: var(--text-sub);
-        transition: background 0.18s, color 0.18s;
-        white-space: nowrap;
+        border-bottom: 1px solid var(--border-dim);
+        border-left: 3px solid transparent;
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .main-nav .nav-link:last-of-type { border-bottom: none; }
+    .main-nav .nav-link i {
+        width: 18px;
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--rg);
+        opacity: 0.65;
+        flex-shrink: 0;
+        transition: opacity 0.18s;
     }
     .main-nav .nav-link:hover,
     .main-nav .nav-link.active {
-        background: var(--rg-pale);
-        color: var(--rg-light);
+        background: var(--surface-2);
+        color: var(--text);
+        border-left-color: var(--rg);
     }
+    .main-nav .nav-link:hover i,
+    .main-nav .nav-link.active i { opacity: 1; }
+
+    /* Hire Me CTA at the bottom */
+    .nav-mobile-cta {
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 12px 12px;
+        padding: 11px 16px;
+        background: linear-gradient(135deg, var(--rg), var(--rg-dark));
+        color: #fff !important;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 4px 16px rgba(108,140,232,0.30);
+        transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-mobile-cta:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        color: #fff !important;
+    }
+    .nav-mobile-cta i { font-size: 0.78rem; }
 
     .site-header.scrolled { margin: 0 10px; border-radius: 20px; }
 
