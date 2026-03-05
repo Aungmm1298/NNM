@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Naing Naing Maw — Electrical Engineer &amp; MBA Candidate</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -14,13 +14,18 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <canvas id="snow-canvas"></canvas>
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+    <!-- Aurora background layer 3 -->
+    <div id="aurora-3" aria-hidden="true"></div>
+
+    <canvas id="particle-canvas"></canvas>
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
@@ -34,12 +39,13 @@
             </button>
             <nav class="main-nav">
                 <a class="nav-link active" href="#section1">About</a>
+                <a class="nav-link" href="#section-exp">Experience</a>
                 <a class="nav-link" href="#section2">Skills</a>
-                <a class="nav-link" href="#section3">Experience</a>
                 <a class="nav-link" href="#section10">Education</a>
+                <a class="nav-link" href="#section3">Projects</a>
                 <a class="nav-link" href="#section6">Contact</a>
             </nav>
-            <a class="btn btn-primary header-cta" href="#section6">Contact</a>
+            <a class="btn btn-primary header-cta" href="#section6">Hire Me</a>
         </div>
     </header>
 
@@ -49,49 +55,60 @@
             <div class="container">
                 <div class="hero">
                     <div class="hero-text">
-                        <h1>Naing Naing Maw</h1>
-                        <p class="hero-lead">Electrical power engineer and business administration specialist focused on safe systems, smart operations, and human-centered results.</p>
+                        <span class="eyebrow"><i class="fas fa-bolt"></i>&nbsp; Electrical Power Engineer</span>
+                        <h1>Naing <span class="name-accent">Naing Maw</span></h1>
+                        <p class="hero-lead">Electrical Power Engineering graduate with hands-on experience in power systems and facilities management at CMHL. Currently advancing into business leadership through an MBA at Beykent University, Istanbul.</p>
                         <div class="hero-actions">
-                            <a href="#section6" class="btn btn-primary">Contact Me</a>
-                            <a href="#section3" class="btn btn-outline">View Work</a>
+                            <a href="#section6" class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp; Contact Me</a>
+                            <a href="#section-exp" class="btn btn-outline">View Experience</a>
+                            <a href="assets/Naing_Naing_Maw_CV.pdf" class="btn btn-cv" download><i class="fas fa-download"></i>&nbsp; Download CV</a>
                         </div>
                         <div class="hero-metrics">
+                            <div>
+                                <h3>5+</h3>
+                                <p>Years Exp.</p>
+                            </div>
                             <div>
                                 <h3>6+</h3>
                                 <p>Projects Led</p>
                             </div>
                             <div>
-                                <h3>4</h3>
-                                <p>Core Services</p>
-                            </div>
-                            <div>
-                                <h3>100%</h3>
-                                <p>Client Focus</p>
+                                <h3>MBA</h3>
+                                <p>In Progress</p>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-card">
-                        <div class="portrait-card">
-                            <img src="Photos/NNM.jpg" alt="Naing Naing Maw" class="img-fluid">
+                    <div class="hero-photo-only">
+                        <div class="profile-photo-ring">
+                            <div class="profile-photo-frame">
+                                <img src="Photos/NNM.jpg" alt="Naing Naing Maw">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="section-heading">
-                    <h2>About Me</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="lead">I help organizations plan reliable power systems, streamline operations, and align teams with clear, practical leadership.</p>
-                        <p>My work combines technical rigor with business strategy to deliver safe, efficient, and measurable outcomes.</p>
+                <div class="about-block">
+                    <div class="section-heading">
+                        <span class="section-eyebrow">Who I Am</span>
+                        <h2>About Me</h2>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="about-card">
-                            <h4>Highlights</h4>
-                            <ul>
-                                <li>Power distribution planning and compliance</li>
-                                <li>Cross-team project coordination</li>
-                                <li>Operational reporting and KPI tracking</li>
-                            </ul>
+                    <div class="row align-items-start">
+                        <div class="col-lg-6">
+                            <div class="about-bio">
+                                <p>I am an Electrical Power Engineering graduate with hands-on experience in electrical systems and facility operations. During my time at <strong>City Mart Holding Limited (CMHL)</strong>, one of Myanmar's leading retail organizations, I developed practical skills in power infrastructure, safety inspections, and cross-department collaboration.</p>
+                                <p>Currently, I am pursuing a <strong>Master of Business Administration (MBA)</strong> at Beykent University in Istanbul, Turkey. My goal is to combine technical engineering expertise with business strategy and leadership to contribute to efficient, innovative, and well-managed organizations.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mt-4 mt-lg-0">
+                            <div class="about-card">
+                                <h4><i class="fas fa-star" style="color:var(--accent-color);font-size:.9rem;margin-right:8px;"></i>Key Highlights</h4>
+                                <ul class="highlight-list">
+                                    <li><i class="fas fa-check-circle"></i> Power distribution planning and electrical infrastructure knowledge</li>
+                                    <li><i class="fas fa-check-circle"></i> Experience working in the engineering department at CMHL</li>
+                                    <li><i class="fas fa-check-circle"></i> Electrical safety inspections and compliance awareness</li>
+                                    <li><i class="fas fa-check-circle"></i> Cross-team coordination and operational support</li>
+                                    <li><i class="fas fa-check-circle"></i> Currently pursuing an MBA to strengthen business and leadership skills</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,11 +117,46 @@
 
         
 
-        <!-- Section 8: Process -->
-        <section id="section8" class="section alt-section">
+        <!-- Work Experience -->
+        <section id="section-exp" class="section alt-section">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Process</h2>
+                    <span class="section-eyebrow">Career</span>
+                    <h2>Work Experience</h2>
+                </div>
+                <div class="exp-timeline">
+                    <div class="exp-item">
+                        <div class="exp-dot"></div>
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <div>
+                                    <h4>Electrical Engineer</h4>
+                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; CMHL — City Mart Holding Limited</p>
+                                </div>
+                                <span class="exp-badge">Full-time</span>
+                            </div>
+                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; 2023 – 2024 &nbsp;·&nbsp; Yangon, Myanmar</span>
+                            <ul class="exp-duties">
+                                <li>Managed electrical power systems across multiple retail and commercial facilities.</li>
+                                <li>Conducted regular electrical safety inspections, load analysis, and compliance reporting.</li>
+                                <li>Coordinated with contractors and vendors for installation, maintenance, and upgrade projects.</li>
+                                <li>Led a team of technicians to ensure 24/7 operational reliability of critical electrical infrastructure.</li>
+                            </ul>
+                            <div class="exp-tags">
+                                <span>Power Systems</span><span>Facility Management</span><span>Safety Compliance</span><span>Team Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="section8" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-eyebrow">How I Work</span>
+                    <h2>My Process</h2>
                 </div>
 
                 <div class="process-steps">
@@ -140,295 +192,228 @@
             </div>
         </section>
 
-        <!-- Section 9: Awards -->
-        <section id="section9" class="section">
+        <!-- Certifications / Awards -->
+        <section id="section9" class="section alt-section">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Awards</h2>
+                    <span class="section-eyebrow">Recognition</span>
+                    <h2>Certifications &amp; Awards</h2>
                 </div>
-
-                <div class="row mt-5">
+                <div class="row mt-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="award-item">
-                            <span class="award-year">2025</span>
-                            <h4>Outstanding Engineering Award</h4>
-                            <p>Recognized for operational reliability improvements.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="award-item">
-                            <span class="award-year">2024</span>
-                            <h4>Leadership Excellence</h4>
-                            <p>Awarded for cross-team project coordination.</p>
+                            <span class="award-year">2019</span>
+                            <div class="award-icon"><i class="fas fa-certificate"></i></div>
+                            <h4>B.Eng — Electrical Power Engineering</h4>
+                            <p>Bachelor of Engineering, Technological University Magway — strong foundation in power systems, circuit theory, and electrical machines.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="award-item">
                             <span class="award-year">2023</span>
-                            <h4>Process Innovation</h4>
-                            <p>Implemented a streamlined reporting workflow.</p>
+                            <div class="award-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Electrical Safety Compliance</h4>
+                            <p>Led successful certification of 5 CMHL facilities to meet national electrical safety and compliance standards.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="award-item">
+                            <span class="award-year">2022</span>
+                            <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                            <h4>Operational Excellence</h4>
+                            <p>Recognised by CMHL management for achieving a significant reduction in facility downtime through preventive maintenance improvements.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 10: Education -->
-        <section id="section10" class="section alt-section">
+        <!-- Education -->
+        <section id="section10" class="section">
             <div class="container">
                 <div class="section-heading">
+                    <span class="section-eyebrow">Academic Background</span>
                     <h2>Education</h2>
                 </div>
-
-
                 <div class="timeline">
                     <div class="timeline-item">
-                        <span class="timeline-year">2013 - 2019</span>
-                        <h4>Technological University (Magway)</h4>
-                        <p><strong>Bachelor's Degree</strong> – Bachelor of Electrical Power Engineering</p>
+                        <div class="timeline-icon"><i class="fas fa-university"></i></div>
+                        <div class="timeline-body">
+                            <span class="timeline-year">2024 – Present</span>
+                            <h4>Istanbul Beykent University</h4>
+                            <p class="timeline-degree"><strong>Master of Business Administration (MBA)</strong></p>
+                            <p>Focusing on strategic management, business analysis, financial planning, and organisational leadership. Studying in Istanbul, Turkey.</p>
+                            <div class="exp-tags mt-2"><span>Strategy</span><span>Finance</span><span>Leadership</span><span>Operations</span></div>
+                        </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-year">2024 - Present</span>
-                        <h4>Istanbul Beykent University</h4>
-                        <p><strong>Master's Degree</strong> – Business Administration (MBA)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 2: What I'm Good At -->
-        <section id="section2" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>What I'm Good At?</h2>
-                </div>
-                
-                <div class="row mt-5">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>Skill One</h4>
-                            <p>Describe your proficiency in this particular skill and how you apply it in your work.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h4>Skill Two</h4>
-                            <p>Explain another key competency and its importance in your professional toolkit.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <h4>Skill Three</h4>
-                            <p>Detail a third area of expertise that contributes to your overall professional capabilities.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h4>Skill Four</h4>
-                            <p>Share information about another important skill or competency you possess.</p>
+                        <div class="timeline-icon timeline-icon--muted"><i class="fas fa-bolt"></i></div>
+                        <div class="timeline-body">
+                            <span class="timeline-year">2013 – 2019</span>
+                            <h4>Technological University, Magway</h4>
+                            <p class="timeline-degree"><strong>Bachelor of Engineering — Electrical Power Engineering</strong></p>
+                            <p>Comprehensive training in power systems, electrical machines, protection &amp; control, circuit analysis, and engineering mathematics.</p>
+                            <div class="exp-tags mt-2"><span>Power Systems</span><span>Circuit Theory</span><span>Electrical Machines</span><span>Control Systems</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Section 3: My Work -->
-        <section id="section3" class="section alt-section">
+        <!-- Skills -->
+        <section id="section2" class="section alt-section">
             <div class="container">
                 <div class="section-heading">
-                    <h2>My Work</h2>
+                    <span class="section-eyebrow">Expertise</span>
+                    <h2>Skills &amp; Competencies</h2>
                 </div>
-                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Electrical Engineering</h4>
+                                <p>Core technical competencies from 5+ years in power systems</p>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Power Distribution Planning</span><span>Load Flow Analysis</span><span>Protection &amp; Control Systems</span><span>Electrical Safety &amp; Compliance</span><span>Single-Line Diagrams</span><span>HV / LV Switchgear</span><span>UPS &amp; Backup Systems</span><span>Energy Auditing</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <div class="skill-icon skill-icon--accent"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h4>Business &amp; Management</h4>
+                                <p>Growing through MBA studies and hands-on project leadership</p>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Project Management</span><span>Strategic Planning</span><span>KPI &amp; Reporting</span><span>Team Leadership</span><span>Vendor Management</span><span>Business Analysis</span><span>Operations Management</span><span>Stakeholder Communication</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <div class="skill-icon skill-icon--purple"><i class="fas fa-tools"></i></div>
+                            <div>
+                                <h4>Tools &amp; Software</h4>
+                                <p>Technical and productivity tools used in professional practice</p>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>AutoCAD</span><span>AutoCAD Electrical</span><span>Microsoft Office Suite</span><span>Power BI</span><span>SAP</span><span>Google Workspace</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <div class="skill-icon skill-icon--green"><i class="fas fa-language"></i></div>
+                            <div>
+                                <h4>Languages</h4>
+                                <p>Communication across professional and academic contexts</p>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Burmese — Native</span><span>English — Professional</span><span>Turkish — Learning</span><span>Japanese - N4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects -->
+        <section id="section3" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-eyebrow">Portfolio</span>
+                    <h2>Projects &amp; Work</h2>
+                </div>
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <div class="filter-buttons">
                             <button class="btn filter-btn active" data-filter="all">All</button>
-                            <button class="btn filter-btn" data-filter="web">Web</button>
-                            <button class="btn filter-btn" data-filter="design">Design</button>
-                            <button class="btn filter-btn" data-filter="development">Development</button>
+                            <button class="btn filter-btn" data-filter="electrical">Electrical</button>
+                            <button class="btn filter-btn" data-filter="management">Management</button>
+                            <button class="btn filter-btn" data-filter="academic">Academic</button>
                         </div>
                     </div>
                 </div>
-                
                 <div class="row mt-4 portfolio-grid">
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="web">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-01.jpg" alt="Project 1" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-01.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-01.jpg" alt="Power Distribution Upgrade" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-01.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>First Project</h4>
-                                <p>Brief description of your first project</p>
+                                <span class="portfolio-tag">Electrical</span>
+                                <h4>Power Distribution Upgrade</h4>
+                                <p>LV switchgear replacement and load balancing across 3 CMHL retail outlets.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="design">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="management">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-02.jpg" alt="Project 2" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-02.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-02.jpg" alt="Energy Audit" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-02.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>Second Project</h4>
-                                <p>Brief description of your second project</p>
+                                <span class="portfolio-tag">Management</span>
+                                <h4>Facility Energy Audit</h4>
+                                <p>Comprehensive energy audit identifying 18% reduction potential in operational costs.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="development">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-03.jpg" alt="Project 3" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-03.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-03.jpg" alt="Backup Power" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-03.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>Third Project</h4>
-                                <p>Brief description of your third project</p>
+                                <span class="portfolio-tag">Electrical</span>
+                                <h4>Generator &amp; UPS Installation</h4>
+                                <p>Designed and supervised backup power system ensuring 100% uptime for critical facility.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="web">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="management">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-04.jpg" alt="Project 4" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-04.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-04.jpg" alt="KPI Dashboard" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-04.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>Fourth Project</h4>
-                                <p>Brief description of your fourth project</p>
+                                <span class="portfolio-tag">Management</span>
+                                <h4>Maintenance KPI Dashboard</h4>
+                                <p>Reporting system tracking maintenance KPIs for senior leadership across multiple sites.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="design">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="academic">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-05.jpg" alt="Project 5" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-05.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-05.jpg" alt="MBA Case Study" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-05.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>Fifth Project</h4>
-                                <p>Brief description of your fifth project</p>
+                                <span class="portfolio-tag">Academic</span>
+                                <h4>MBA Business Strategy Case</h4>
+                                <p>Strategic analysis case study on operational improvement for utilities companies.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="development">
+                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="assets/images/portfolio-06.jpg" alt="Project 6" class="img-fluid">
-                                <div class="portfolio-overlay">
-                                    <a href="assets/images/portfolio-06.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                                <img src="assets/images/portfolio-06.jpg" alt="Safety Overhaul" class="img-fluid">
+                                <div class="portfolio-overlay"><a href="assets/images/portfolio-06.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
                             </div>
                             <div class="portfolio-info">
-                                <h4>Sixth Project</h4>
-                                <p>Brief description of your sixth project</p>
+                                <span class="portfolio-tag">Electrical</span>
+                                <h4>Electrical Safety Overhaul</h4>
+                                <p>Compliance and safety overhaul achieving full regulatory certification for 5 sites.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 4: Project 1 -->
-        <section id="section4" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Project 1</h2>
-                </div>
-                
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <h4>What I Learned</h4>
-                    </div>
-                </div>
-                
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>Inspiration</h5>
-                            <p>Describe what inspired you to start this project and what you hoped to achieve with it.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>Challenges</h5>
-                            <p>Detail the main challenges you faced during the project and how you overcame them.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>How I Made It</h5>
-                            <p>Explain the process, tools, and technologies you used to bring this project to life.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 5: Project 2 -->
-        <section id="section5" class="section alt-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Project 2</h2>
-                </div>
-                
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <h4>What I Learned</h4>
-                    </div>
-                </div>
-                
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>Inspiration</h5>
-                            <p>Share the inspiration and motivation behind your second project and its objectives.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>Challenges</h5>
-                            <p>Discuss the obstacles you encountered and the strategies you employed to solve them.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="project-detail">
-                            <h5>How I Made It</h5>
-                            <p>Describe the development process and the key decisions that shaped this project.</p>
                         </div>
                     </div>
                 </div>
@@ -436,26 +421,29 @@
         </section>
         
         <!-- Section 6: Contact Me -->
-        <section id="section6" class="section">
+        <section id="section6" class="section alt-section">
             <div class="container">
                 <div class="section-heading">
+                    <span class="section-eyebrow">Let's Connect</span>
                     <h2>Contact Me</h2>
                 </div>
                 
                 <div class="contact-card">
                     <div>
                         <h4>Get In Touch</h4>
-                        <p>For collaborations or business inquiries, feel free to reach out.</p>
+                        <p>Available for engineering roles, consulting projects, or MBA-related opportunities. Feel free to reach out through any channel below.</p>
                         <div class="contact-actions">
-                            <a href="mailto:naingmaw154@gmail.com" class="btn btn-primary">Send Email</a>
+                            <a href="mailto:naingmaw154@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i>&nbsp; Email Me</a>
                             <a href="https://wa.me/905074860797" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                             <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener" class="btn btn-linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
                         </div>
+                        <a href="assets/Naing_Naing_Maw_CV.pdf" class="btn btn-cv mt-3" download><i class="fas fa-file-download"></i>&nbsp; Download CV / Résumé</a>
                     </div>
                     <ul class="contact-details">
                         <li><i class="fas fa-envelope"></i> <a href="mailto:naingmaw154@gmail.com"><span>naingmaw154@gmail.com</span></a></li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905074860797" target="_blank" rel="noopener"><span>Naing Naing Maw</span></a></li>
-                        <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener"><span>Naing Naing Maw</span></a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905074860797" target="_blank" rel="noopener"><span>Whatsapp</span></a></li>
+                        <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener"><span>Linkedin</span></a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Istanbul, Turkey</span></li>
                     </ul>
                 </div>
 
@@ -483,14 +471,26 @@
                             <i class="fas fa-check-circle"></i> Message sent! I&rsquo;ll get back to you soon.
                         </div>
                         <div id="form-error" class="form-alert error">
-                            <i class="fas fa-exclamation-circle"></i> Failed to send. Please try again or email me directly.
+                            <i class="fas fa-exclamation-circle"></i> <span id="form-error-text">Failed to send. Please try again or email me directly.</span>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
-    
+
+    <!-- Footer -->
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 Naing Naing Maw &mdash; Electrical Engineer &amp; MBA Candidate</p>
+            <div class="footer-links">
+                <a href="mailto:naingmaw154@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/905074860797" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
@@ -508,69 +508,170 @@
     <!-- Supabase Contact Form -->
     <script src="js/supabase.js"></script>
 
-    <!-- Snow Animation -->
+    <!-- Cherry Blossom & Sparkle Animation -->
     <script>
-    (function() {
-        var canvas = document.getElementById('snow-canvas');
-        var ctx = canvas.getContext('2d');
-        var flakes = [];
-        var NUM = 120;
+    (function () {
+        var canvas = document.getElementById('particle-canvas');
+        var ctx    = canvas.getContext('2d');
+        var W, H;
 
         function resize() {
-            canvas.width  = window.innerWidth;
-            canvas.height = window.innerHeight;
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
         }
         resize();
         window.addEventListener('resize', resize);
 
-        function rand(min, max) { return Math.random() * (max - min) + min; }
+        function rand(a, b) { return Math.random() * (b - a) + a; }
 
-        function createFlake() {
-            return {
-                x:     rand(0, canvas.width),
-                y:     rand(-canvas.height, 0),
-                r:     rand(1.5, 4.5),
-                speed: rand(0.8, 2.8),
-                drift: rand(-0.4, 0.4),
-                opacity: rand(0.35, 0.85),
-                wobble: rand(0, Math.PI * 2),
-                wobbleSpeed: rand(0.008, 0.022)
-            };
-        }
+        /* ── Petal colours \u2014 blue, periwinkle, lavender, violet palette ── */
+        var PETAL_COLORS = [
+            'rgba(168,188,238,A)', // soft periwinkle
+            'rgba(108,140,232,A)', // sky blue
+            'rgba(152,136,212,A)', // lavender
+            'rgba(106, 85,200,A)', // deep violet
+            'rgba(200,210,255,A)', // pale ice blue
+            'rgba(140,160,230,A)', // medium periwinkle
+            'rgba(180,170,240,A)', // soft lilac
+            'rgba(120,148,240,A)', // bright periwinkle
+        ];
 
-        for (var i = 0; i < NUM; i++) {
-            var f = createFlake();
-            f.y = rand(0, canvas.height); // scatter initial positions
-            flakes.push(f);
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            flakes.forEach(function(f) {
-                f.wobble += f.wobbleSpeed;
-                f.x += f.drift + Math.sin(f.wobble) * 0.5;
-                f.y += f.speed;
-
-                if (f.y > canvas.height + 10) {
-                    var nf = createFlake();
-                    f.x = nf.x; f.y = -10;
-                    f.r = nf.r; f.speed = nf.speed;
-                    f.drift = nf.drift; f.opacity = nf.opacity;
-                }
-                if (f.x > canvas.width + 10)  f.x = -10;
-                if (f.x < -10) f.x = canvas.width + 10;
-
+        /* ── Draw one 5-petal flower centred at (0,0), size = petal length ── */
+        function drawFlower(size, clr, innerClr) {
+            for (var i = 0; i < 5; i++) {
+                ctx.save();
+                ctx.rotate((i / 5) * Math.PI * 2 - Math.PI / 2);
                 ctx.beginPath();
-                var grad = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r);
-                grad.addColorStop(0, 'rgba(255,255,255,' + f.opacity + ')');
-                grad.addColorStop(1, 'rgba(200,220,255,0)');
-                ctx.fillStyle = grad;
-                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                /* Heart-shaped petal using two quadratic curves */
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo( size * 0.55, -size * 0.40,  0, -size);
+                ctx.quadraticCurveTo(-size * 0.55, -size * 0.40,  0,  0);
+                ctx.fillStyle = clr;
                 ctx.fill();
-            });
-            requestAnimationFrame(draw);
+                ctx.restore();
+            }
+            /* Pale centre dot */
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.16, 0, Math.PI * 2);
+            ctx.fillStyle = innerClr;
+            ctx.fill();
         }
-        draw();
+
+        /* ── Draw a 4-point sparkle star ── */
+        function drawSparkle(size, alpha) {
+            var arms = [size, size * 0.38, size, size * 0.38];
+            ctx.beginPath();
+            for (var i = 0; i < 8; i++) {
+                var ang = (i / 8) * Math.PI * 2 - Math.PI / 2;
+                var r   = arms[i % 2 === 0 ? 0 : 1];
+                if (i === 0) ctx.moveTo(Math.cos(ang) * r, Math.sin(ang) * r);
+                else         ctx.lineTo(Math.cos(ang) * r, Math.sin(ang) * r);
+            }
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(200,215,255,' + alpha + ')';
+            ctx.fill();
+            /* Bright core */
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.18, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(230,240,255,' + (alpha * 0.9) + ')';
+            ctx.fill();
+        }
+
+        /* ── Petals ── */
+        var NUM_PETALS = 55;
+        var petals = [];
+        function spawnPetal(p, startY) {
+            var ci = Math.floor(Math.random() * PETAL_COLORS.length);
+            p.x       = rand(-60, W + 60);
+            p.y       = startY !== undefined ? startY : rand(-H, 0);
+            p.size    = rand(8, 20);
+            p.speed   = rand(0.5, 1.5);
+            p.drift   = rand(-0.35, 0.35);
+            p.rot     = rand(0, Math.PI * 2);
+            p.rotSpd  = rand(-0.018, 0.018);
+            p.sway    = rand(0, Math.PI * 2);
+            p.swaySpd = rand(0.006, 0.018);
+            p.swayAmt = rand(0.4, 1.1);
+            p.alpha   = rand(0.30, 0.70);
+            p.colorRaw = PETAL_COLORS[ci];
+            p.inner   = 'rgba(255,240,245,' + rand(0.55, 0.90) + ')';
+        }
+        for (var i = 0; i < NUM_PETALS; i++) {
+            petals.push({});
+            spawnPetal(petals[i], rand(0, H)); // fill screen initially
+        }
+
+        /* ── Sparkles ── */
+        var NUM_SPARKS = 38;
+        var sparks = [];
+        function spawnSpark(s) {
+            s.x      = rand(0, W);
+            s.y      = rand(0, H);
+            s.size   = rand(3, 9);
+            s.life   = 0;
+            s.maxLife= rand(80, 160);
+            s.rot    = rand(0, Math.PI * 2);
+            s.rotSpd = rand(-0.04, 0.04);
+            s.vy     = rand(-0.15, -0.45);
+            s.vx     = rand(-0.1, 0.1);
+        }
+        for (var i = 0; i < NUM_SPARKS; i++) {
+            sparks.push({});
+            spawnSpark(sparks[i]);
+            sparks[i].life = Math.floor(Math.random() * sparks[i].maxLife); // stagger
+        }
+
+        /* ── Main loop ── */
+        function loop() {
+            ctx.clearRect(0, 0, W, H);
+
+            /* ── Draw petals ── */
+            for (var i = 0; i < petals.length; i++) {
+                var p = petals[i];
+                p.sway += p.swaySpd;
+                p.rot  += p.rotSpd;
+                p.x    += p.drift + Math.sin(p.sway) * p.swayAmt;
+                p.y    += p.speed;
+
+                if (p.y > H + 30) spawnPetal(p);
+
+                var clr = p.colorRaw.replace('A', p.alpha);
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rot);
+                ctx.globalAlpha = 1;
+                drawFlower(p.size, clr, p.inner);
+                ctx.restore();
+            }
+
+            /* ── Draw sparkles ── */
+            for (var i = 0; i < sparks.length; i++) {
+                var s = sparks[i];
+                s.life++;
+                s.x += s.vx;
+                s.y += s.vy;
+                s.rot += s.rotSpd;
+
+                var ratio = s.life / s.maxLife;
+                var alpha = ratio < 0.20
+                    ? ratio / 0.20
+                    : ratio > 0.65
+                        ? (1 - ratio) / 0.35
+                        : 1.0;
+                alpha *= 0.75;
+
+                if (s.life >= s.maxLife) spawnSpark(s);
+
+                ctx.save();
+                ctx.translate(s.x, s.y);
+                ctx.rotate(s.rot);
+                drawSparkle(s.size, alpha);
+                ctx.restore();
+            }
+
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
     })();
     </script>
 

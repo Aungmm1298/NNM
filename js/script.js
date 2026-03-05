@@ -16,9 +16,22 @@
         }
     });
     
+    // ================================
+    // Scroll Progress Bar
+    // ================================
+    var $progress = $('#scroll-progress');
+    function updateProgress() {
+        var docH  = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct   = docH > 0 ? ($(document).scrollTop() / docH) * 100 : 0;
+        $progress.css('width', pct.toFixed(2) + '%');
+    }
+
     // Scroll Spy + Floating Nav
     $(window).on('scroll', function() {
         var scrollPos = $(document).scrollTop();
+
+        // Scroll progress
+        updateProgress();
 
         // Floating nav toggle
         if (scrollPos > 60) {
@@ -72,19 +85,26 @@
 
         // Each entry: selector, direction, whether to stagger siblings
         var revealGroups = [
-            { sel: '.section-heading',     dir: 'from-up',    stagger: false },
-            { sel: '.hero-text',           dir: 'from-left',  stagger: false },
-            { sel: '.hero-card',           dir: 'from-right', stagger: false },
-            { sel: '.hero-metrics > div',  dir: 'from-up',    stagger: true  },
-            { sel: '.about-card',          dir: 'from-right', stagger: false },
-            { sel: '.skill-item',          dir: 'from-up',    stagger: true  },
-            { sel: '.service-item',        dir: 'from-up',    stagger: true  },
-            { sel: '.portfolio-item',      dir: 'from-scale', stagger: true  },
-            { sel: '.process-step',        dir: 'from-left',  stagger: true  },
-            { sel: '.award-item',          dir: 'from-up',    stagger: true  },
-            { sel: '.timeline-item',       dir: 'from-right', stagger: true  },
-            { sel: '.project-detail',      dir: 'from-up',    stagger: true  },
-            { sel: '.contact-card',        dir: 'from-up',    stagger: false },
+            { sel: '.section-heading',        dir: 'from-up',    stagger: false },
+            { sel: '.section-eyebrow',        dir: 'from-up',    stagger: false },
+            { sel: '.hero-text h1',           dir: 'from-left',  stagger: false },
+            { sel: '.hero-text .hero-lead',   dir: 'from-left',  stagger: false },
+            { sel: '.hero-text .hero-actions',dir: 'from-left',  stagger: false },
+            { sel: '.hero-text .hero-metrics',dir: 'from-up',    stagger: false },
+            { sel: '.hero-photo-only',        dir: 'from-right', stagger: false },
+            { sel: '.about-block',            dir: 'from-up',    stagger: false },
+            { sel: '.about-card',             dir: 'from-right', stagger: false },
+            { sel: '.exp-item',               dir: 'from-left',  stagger: true  },
+            { sel: '.skill-category',         dir: 'from-up',    stagger: true  },
+            { sel: '.skill-item',             dir: 'from-up',    stagger: true  },
+            { sel: '.service-item',           dir: 'from-up',    stagger: true  },
+            { sel: '.portfolio-item',         dir: 'from-scale', stagger: true  },
+            { sel: '.process-step',           dir: 'from-left',  stagger: true  },
+            { sel: '.award-item',             dir: 'from-up',    stagger: true  },
+            { sel: '.timeline-item',          dir: 'from-right', stagger: true  },
+            { sel: '.project-detail',         dir: 'from-up',    stagger: true  },
+            { sel: '.contact-card',           dir: 'from-up',    stagger: false },
+            { sel: '.contact-form-wrap',      dir: 'from-up',    stagger: false },
         ];
 
         var staggerClasses = ['stagger-1','stagger-2','stagger-3','stagger-4','stagger-5','stagger-6'];
@@ -118,7 +138,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            }, { threshold: 0.10, rootMargin: '0px 0px -48px 0px' });
 
             document.querySelectorAll('.reveal').forEach(function(el) {
                 observer.observe(el);
@@ -156,6 +176,9 @@
         }
     });
 
-    $(document).ready(function() { initReveal(); });
+    $(document).ready(function() {
+        updateProgress(); // initialise on load (handles mid-page refresh)
+        initReveal();
+    });
     
 })($);

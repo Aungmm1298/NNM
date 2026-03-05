@@ -48,11 +48,16 @@
                 form.reset();
             } else {
                 var err = await response.json().catch(function () { return {}; });
-                console.error('Supabase error:', err);
+                console.error('Supabase error (status ' + response.status + '):', err);
+                var detail = err.message || err.hint || err.error_description || ('HTTP ' + response.status);
+                var errSpan = document.getElementById('form-error-text');
+                if (errSpan) errSpan.textContent = 'Failed to send (' + detail + '). Please try again or email me directly.';
                 errorMsg.style.display = 'flex';
             }
         } catch (err) {
             console.error('Network error:', err);
+            var errSpan = document.getElementById('form-error-text');
+            if (errSpan) errSpan.textContent = 'Failed to send (network error). Please check your connection or email me directly.';
             errorMsg.style.display = 'flex';
         } finally {
             submitBtn.disabled       = false;
