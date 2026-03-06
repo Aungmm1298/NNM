@@ -170,8 +170,9 @@
         // Use phrases from data.js if available, otherwise fallback
         var phrases = (typeof PortfolioData !== 'undefined' && PortfolioData.profile.typingPhrases)
             ? PortfolioData.profile.typingPhrases
-            : ['Electrical Power Engineering Graduate', 'MBA Candidate', 'CRM Specialist', 'Operations Professional'];
-        var phraseIdx = 0, charIdx = phrases[0].length, deleting = false, pauseTicks = 0;
+            : ['Electrical Power Engineering Graduate', 'MBA Candidate'];
+        // Start one short so the first tick lands at full-length and triggers the pause
+        var phraseIdx = 0, charIdx = phrases[0].length - 1, deleting = false, pauseTicks = 0;
         el.textContent = phrases[0];
         el.classList.add('typewriter-text');
 

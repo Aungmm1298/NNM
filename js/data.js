@@ -13,9 +13,7 @@ var PortfolioData = {
         subtitle:      'Electrical Power Engineer & MBA Candidate',
         typingPhrases: [
             'Electrical Power Engineering Graduate',
-            'MBA Candidate',
-            'CRM Specialist',
-            'Operations Professional'
+            'Master of Business Administration (MBA)'
         ],
         lead: 'Electrical Power Engineering graduate with hands-on experience in power systems and facilities management. Currently advancing into business leadership through an MBA at Beykent University, Istanbul.',
         bio: [
