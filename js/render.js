@@ -35,8 +35,6 @@ var PortfolioRender = (function () {
                 + '<span>' + esc(item.label) + '</span>'
                 + '</a>';
         }).join('');
-        links += '<button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">'
-               + '<i class="fas fa-moon"></i></button>';
         links += '<a href="#section6" class="nav-mobile-cta">Contact Me <i class="fas fa-arrow-right"></i></a>';
         nav.innerHTML = links;
     }

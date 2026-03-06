@@ -239,30 +239,6 @@
     }
 
     // ================================
-    // Dark / Light Mode Toggle
-    // ================================
-    function initDarkMode() {
-        var btn = document.getElementById('theme-toggle');
-        if (!btn) return;
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            var icon = btn.querySelector('i');
-            if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            localStorage.setItem('portfolio-theme', theme);
-        }
-        btn.addEventListener('click', function () {
-            var current = document.documentElement.getAttribute('data-theme') || 'light';
-            applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-        // Sync icon with saved state on load
-        var saved = localStorage.getItem('portfolio-theme') || 'light';
-        if (saved === 'dark') {
-            var icon = btn.querySelector('i');
-            if (icon) icon.className = 'fas fa-sun';
-        }
-    }
-
-    // ================================
     // Copy Email Button
     // ================================
     function initCopyEmail() {
@@ -300,7 +276,6 @@
         initCounters();
         initBackToTop();
         initCopyEmail();
-        initDarkMode();
         window._portfolioReveal = initReveal;
     });
 
