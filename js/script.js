@@ -167,35 +167,43 @@
     function initTypewriter() {
         var el = document.querySelector('.hero-subtitle');
         if (!el) return;
-        // Use phrases from data.js if available, otherwise fallback
         var phrases = (typeof PortfolioData !== 'undefined' && PortfolioData.profile.typingPhrases)
             ? PortfolioData.profile.typingPhrases
-            : ['Electrical Power Engineering Graduate', 'MBA Candidate'];
-        // Start one short so the first tick lands at full-length and triggers the pause
-        var phraseIdx = 0, charIdx = phrases[0].length - 1, deleting = false, pauseTicks = 0;
-        el.textContent = phrases[0];
+            : ['Electrical Power Engineering Graduate', 'Master of Business Administration (MBA)'];
+        var phraseIdx = 0, charIdx = 0, deleting = false, pauseCount = 0;
+        el.textContent = '';
         el.classList.add('typewriter-text');
 
         function tick() {
             var current = phrases[phraseIdx];
             if (deleting) {
                 charIdx--;
+                el.textContent = current.slice(0, charIdx);
+                if (charIdx === 0) {
+                    deleting = false;
+                    phraseIdx = (phraseIdx + 1) % phrases.length;
+                    setTimeout(tick, 400);
+                    return;
+                }
+                setTimeout(tick, 38);
             } else {
                 charIdx++;
+                el.textContent = current.slice(0, charIdx);
+                if (charIdx === current.length) {
+                    pauseCount++;
+                    if (pauseCount < 22) {
+                        setTimeout(tick, 120);   // hold pause
+                    } else {
+                        pauseCount = 0;
+                        deleting = true;
+                        setTimeout(tick, 500);   // pause before deleting
+                    }
+                } else {
+                    setTimeout(tick, 85);        // typing speed
+                }
             }
-            el.textContent = current.slice(0, charIdx);
-            var delay = deleting ? 42 : 88;
-            if (!deleting && charIdx === current.length) {
-                pauseTicks++;
-                if (pauseTicks < 18) { delay = 110; } else { deleting = true; pauseTicks = 0; }
-            } else if (deleting && charIdx === 0) {
-                deleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                delay = 380;
-            }
-            setTimeout(tick, delay);
         }
-        setTimeout(tick, 2500);
+        setTimeout(tick, 800);   // initial delay before first character
     }
 
     // ================================
