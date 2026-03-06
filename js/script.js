@@ -49,35 +49,8 @@
             }
         });
     });
-    
-    // Portfolio Filter
-    $('.filter-btn').on('click', function() {
-        var filterValue = $(this).attr('data-filter');
-        $('.filter-btn').removeClass('active');
-        $(this).addClass('active');
-        if (filterValue === 'all') {
-            $('.portfolio-item').fadeIn(300).removeClass('hide');
-        } else {
-            $('.portfolio-item').fadeOut(300).addClass('hide');
-            setTimeout(function() {
-                $('.portfolio-item[data-category="' + filterValue + '"]').fadeIn(300).removeClass('hide');
-            }, 300);
-        }
-    });
-    
-    // Image Popup
-    $('.image-popup').magnificPopup({
-        type: 'image',
-        gallery: { enabled: true },
-        removalDelay: 300,
-        mainClass: 'mfp-fade',
-        callbacks: {
-            beforeOpen: function() {
-                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-            }
-        }
-    });
-    
+
+});
     // ================================
     // Scroll Reveal – IntersectionObserver
     // ================================

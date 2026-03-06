@@ -16,14 +16,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" href="data:,">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Scroll progress indicator -->
     <div id="scroll-progress" aria-hidden="true"></div>
-    <!-- Aurora background layer 3 -->
-    <div id="aurora-3" aria-hidden="true"></div>
+    <!-- Decorative background orbs -->
+    <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-3" aria-hidden="true"></div>
 
     <canvas id="particle-canvas"></canvas>
     <header class="site-header">
@@ -42,11 +47,10 @@
                 <a class="nav-link" href="#section-exp"><i class="fas fa-briefcase"></i><span>Experience</span></a>
                 <a class="nav-link" href="#section2"><i class="fas fa-tools"></i><span>Skills</span></a>
                 <a class="nav-link" href="#section10"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
-                <a class="nav-link" href="#section3"><i class="fas fa-folder-open"></i><span>Projects</span></a>
+                <a class="nav-link" href="#section9"><i class="fas fa-award"></i><span>Certifications</span></a>
                 <a class="nav-link" href="#section6"><i class="fas fa-envelope"></i><span>Contact</span></a>
-                <a href="#section6" class="nav-mobile-cta">Hire Me <i class="fas fa-arrow-right"></i></a>
+                <a href="#section6" class="nav-mobile-cta">Contact Me <i class="fas fa-arrow-right"></i></a>
             </nav>
-            <a class="btn btn-primary header-cta" href="#section6">Hire Me</a>
         </div>
     </header>
 
@@ -57,6 +61,7 @@
                 <div class="hero">
                     <div class="hero-text">
                         <h1>Naing <span class="name-accent">Naing Maw</span></h1>
+                        <p class="hero-subtitle">Electrical Power Engineer &amp; MBA Candidate</p>
                         <p class="hero-lead">Electrical Power Engineering graduate with hands-on experience in power systems and facilities management. Currently advancing into business leadership through an MBA at Beykent University, Istanbul.</p>
                         <div class="hero-actions">
                             <a href="#section6" class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp; Contact Me</a>
@@ -69,8 +74,8 @@
                                 <p>Years Exp.</p>
                             </div>
                             <div>
-                                <h3>6+</h3>
-                                <p>Projects Led</p>
+                                <h3>4+</h3>
+                                <p>Industries</p>
                             </div>
                             <div>
                                 <h3>MBA</h3>
@@ -84,6 +89,10 @@
                                 <img src="Photos/NNM.jpg" alt="Naing Naing Maw">
                             </div>
                         </div>
+                        <div class="hero-info-chips">
+                            <div class="info-chip"><i class="fas fa-map-marker-alt"></i><span>Istanbul, Turkey</span></div>
+                            <div class="info-chip"><i class="fas fa-university"></i><span>Beykent University</span></div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-block">
@@ -91,26 +100,88 @@
                         <span class="section-eyebrow">Who I Am</span>
                         <h2>About Me</h2>
                     </div>
-                    <div class="row align-items-start">
-                        <div class="col-lg-6">
-                            <div class="about-bio">
-                                <p>I am an Electrical Power Engineering graduate with experience in engineering, operations, quality control, and customer relationship management. I started my career as an intern at Paung Laung Underground Hydropower Plant and later worked as a Junior Site Engineer in the construction sector.</p>
-                                <p>I have also gained operational and customer-focused experience through roles at City Mart Holding Limited (CMHL), Facto Investments, Latonix, and currently as a Customer Relationship Management Specialist at Lavixo. My background combines technical engineering knowledge with strong operational and customer management skills.</p>
+                    <div class="about-content">
+                        <div class="about-bio-text">
+                            <div class="about-chips">
+                                <span class="about-chip"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                                <span class="about-chip"><i class="fas fa-bolt"></i> Power Engineer</span>
+                                <span class="about-chip"><i class="fas fa-graduation-cap"></i> MBA Candidate</span>
+                            </div>
+                            <p>I am an Electrical Power Engineering graduate with experience spanning engineering, operations, quality control, and customer relationship management. Starting my career as an intern at Paung Laung Underground Hydropower Plant, I progressed through site engineering and operations roles in Myanmar before relocating to Istanbul.</p>
+                            <p>I have gained strong operational and customer-focused experience through roles at City Mart Holding Limited (CMHL), Facto Investments, Latonix, and currently as a CRM Specialist at Lavixo. My background uniquely combines technical engineering expertise with business operations and people skills — now being deepened through an MBA at Beykent University.</p>
+                        </div>
+                        <div class="about-stats-col">
+                            <div class="about-stat-card">
+                                <div class="stat-icon stat-icon--accent"><i class="fas fa-briefcase"></i></div>
+                                <div>
+                                    <h3>5+</h3>
+                                    <p>Years of Experience</p>
+                                </div>
+                            </div>
+                            <div class="about-stat-card">
+                                <div class="stat-icon stat-icon--rose"><i class="fas fa-industry"></i></div>
+                                <div>
+                                    <h3>4+</h3>
+                                    <p>Industries Worked In</p>
+                                </div>
+                            </div>
+                            <div class="about-stat-card">
+                                <div class="stat-icon stat-icon--sky"><i class="fas fa-flag"></i></div>
+                                <div>
+                                    <h3>4</h3>
+                                    <p>Languages</p>
+                                </div>
+                            </div>
+                            <div class="about-stat-card">
+                                <div class="stat-icon stat-icon--mint"><i class="fas fa-graduation-cap"></i></div>
+                                <div>
+                                    <h3>MBA</h3>
+                                    <p>In Progress</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 mt-4 mt-lg-0">
-                            <div class="about-card">
-                                <h4><i class="fas fa-star" style="color:var(--accent-color);font-size:.9rem;margin-right:8px;"></i>Key Highlights</h4>
-                                <ul class="highlight-list">
-                                    <li><i class="fas fa-check-circle"></i> Internship experience at Paung Laung Underground Hydropower Plant</li>
-                                    <li><i class="fas fa-check-circle"></i> Former Junior Site Engineer with construction project coordination experience</li>
-                                    <li><i class="fas fa-check-circle"></i> Operation Supervisor experience at City Mart Holding Limited (CMHL)</li>
-                                    <li><i class="fas fa-check-circle"></i> Quality Control Analyst and CRM Administrator at Facto Investments</li>
-                                    <li><i class="fas fa-check-circle"></i> Customer Support Specialist at Latonix</li>
-                                    <li><i class="fas fa-check-circle"></i> Currently Customer Relationship Management Specialist at Lavixo</li>
-                                </ul>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights -->
+        <section id="section-highlights" class="section alt-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-eyebrow">Career Snapshot</span>
+                    <h2>Key Highlights</h2>
+                </div>
+                <div class="highlights-grid">
+                    <div class="highlight-card highlight-card--accent">
+                        <div class="hl-icon hl-icon--accent"><i class="fas fa-bolt"></i></div>
+                        <h4>Power Engineering Roots</h4>
+                        <p>B.Eng in Electrical Power Engineering from Technological University Magway — specialised in power systems, circuit theory &amp; electrical machines.</p>
+                    </div>
+                    <div class="highlight-card highlight-card--rose">
+                        <div class="hl-icon hl-icon--rose"><i class="fas fa-water"></i></div>
+                        <h4>Hydropower Experience</h4>
+                        <p>Gained hands-on experience at Paung Laung Underground Hydropower Plant — engineering fieldwork in live power generation environments.</p>
+                    </div>
+                    <div class="highlight-card highlight-card--sky">
+                        <div class="hl-icon hl-icon--sky"><i class="fas fa-hard-hat"></i></div>
+                        <h4>Site Engineering</h4>
+                        <p>Junior Site Engineer at Wint Htel San Construction — coordinated on-site electrical work for construction and interior decoration projects.</p>
+                    </div>
+                    <div class="highlight-card highlight-card--mint">
+                        <div class="hl-icon hl-icon--mint"><i class="fas fa-store"></i></div>
+                        <h4>Operations Leadership</h4>
+                        <p>Operation Supervisor at CMHL (City Mart Holding) — led facility engineering, preventive maintenance, and safety compliance across multiple retail sites.</p>
+                    </div>
+                    <div class="highlight-card highlight-card--gold">
+                        <div class="hl-icon hl-icon--gold"><i class="fas fa-chart-line"></i></div>
+                        <h4>CRM &amp; QC Expertise</h4>
+                        <p>Quality Control Analyst and CRM Administrator at Facto Investments — bringing data discipline and customer relationship skills to business operations.</p>
+                    </div>
+                    <div class="highlight-card highlight-card--plum">
+                        <div class="hl-icon hl-icon--plum"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>MBA Candidate</h4>
+                        <p>Currently pursuing MBA at Beykent University Istanbul — bridging engineering expertise with strategic business and international management knowledge.</p>
                     </div>
                 </div>
             </div>
@@ -127,14 +198,14 @@
 
                     <!-- CRM Specialist - Lavixo -->
                     <div class="exp-item">
-                        <div class="exp-dot"></div>
+                        <div class="exp-dot exp-dot--current"></div>
                         <div class="exp-content">
                             <div class="exp-header">
                                 <div>
                                     <h4>Customer Relationship Management Specialist</h4>
                                     <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Lavixo</p>
                                 </div>
-                                <span class="exp-badge">Full-time</span>
+                                <span class="exp-badge exp-badge--current">Current Role</span>
                             </div>
                             <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Mar 2026 – Present &nbsp;·&nbsp; Istanbul, Turkey</span>
                             <div class="exp-tags">
@@ -224,7 +295,7 @@
                                     <h4>Summer Intern</h4>
                                     <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Paung Laung Underground Hydropower Plants</p>
                                 </div>
-                                <span class="exp-badge">Internship</span>
+                                <span class="exp-badge exp-badge--intern">Internship</span>
                             </div>
                             <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Mar 2019 – May 2019 &nbsp;·&nbsp; Myanmar</span>
                             <div class="exp-tags">
@@ -237,46 +308,6 @@
             </div>
         </section>
 
-        <!-- Process -->
-        <section id="section8" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">How I Work</span>
-                    <h2>My Process</h2>
-                </div>
-
-                <div class="process-steps">
-                    <div class="process-step">
-                        <span class="step-number">01</span>
-                        <div>
-                            <h4>Discovery</h4>
-                            <p>Understand project constraints, stakeholders, and success criteria.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">02</span>
-                        <div>
-                            <h4>Planning</h4>
-                            <p>Translate goals into a plan with milestones, resources, and safety checks.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">03</span>
-                        <div>
-                            <h4>Execution</h4>
-                            <p>Coordinate teams, monitor progress, and keep communication transparent.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">04</span>
-                        <div>
-                            <h4>Review</h4>
-                            <p>Measure outcomes, document learnings, and refine the next steps.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Certifications / Awards -->
         <section id="section9" class="section alt-section">
@@ -285,31 +316,10 @@
                     <span class="section-eyebrow">Recognition</span>
                     <h2>Certifications &amp; Awards</h2>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="award-item">
-                            <span class="award-year">2019</span>
-                            <div class="award-icon"><i class="fas fa-certificate"></i></div>
-                            <h4>B.Eng — Electrical Power Engineering</h4>
-                            <p>Bachelor of Engineering, Technological University Magway — strong foundation in power systems, circuit theory, and electrical machines.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="award-item">
-                            <span class="award-year">2023</span>
-                            <div class="award-icon"><i class="fas fa-shield-alt"></i></div>
-                            <h4>Electrical Safety Compliance</h4>
-                            <p>Led successful certification of 5 CMHL facilities to meet national electrical safety and compliance standards.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="award-item">
-                            <span class="award-year">2022</span>
-                            <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                            <h4>Operational Excellence</h4>
-                            <p>Recognised by CMHL management for achieving a significant reduction in facility downtime through preventive maintenance improvements.</p>
-                        </div>
-                    </div>
+                <div class="cert-grid">
+
+                    
+
                 </div>
             </div>
         </section>
@@ -364,151 +374,80 @@
                     <span class="section-eyebrow">Expertise</span>
                     <h2>Skills &amp; Competencies</h2>
                 </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                            <div>
-                                <h4>Electrical &amp; Engineering</h4>
-                            </div>
+                <div class="skills-grid-new">
+
+                    <!-- Electrical & Engineering -->
+                    <div class="skill-card-new">
+                        <div class="skill-card-top skill-card-top--accent">
+                            <div class="skill-icon-wrap"><i class="fas fa-bolt"></i></div>
+                            <h4>Electrical &amp; Engineering</h4>
                         </div>
-                        <div class="skill-tags">
-                            <span>Power Generation</span><span>Electrical Engineering</span><span>Engineering</span><span>Engineering Support</span><span>Site Engineer</span><span>Site Coordination</span>
-                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Power Generation &amp; Distribution</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Electrical Engineering</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Site Engineering &amp; Coordination</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Engineering Support</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Preventive Maintenance</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Electrical Safety Compliance</li>
+                        </ul>
                     </div>
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <div class="skill-icon skill-icon--accent"><i class="fas fa-users"></i></div>
-                            <div>
-                                <h4>Customer &amp; Operations</h4>
-                            </div>
+
+                    <!-- Customer & Operations -->
+                    <div class="skill-card-new">
+                        <div class="skill-card-top skill-card-top--rose">
+                            <div class="skill-icon-wrap skill-icon-wrap--rose"><i class="fas fa-users"></i></div>
+                            <h4>Customer &amp; Operations</h4>
                         </div>
-                        <div class="skill-tags">
-                            <span>Customer Relationship Management (CRM)</span><span>Customer Service</span><span>Quality Control</span><span>General Office Work</span>
-                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Customer Relationship Management (CRM)</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Customer Service &amp; Support</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Quality Control &amp; Analysis</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Operations Supervision</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>General Office Administration</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Construction Project Coordination</li>
+                        </ul>
                     </div>
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <div class="skill-icon skill-icon--purple"><i class="fas fa-tools"></i></div>
-                            <div>
-                                <h4>Tools &amp; Software</h4>
-                            </div>
+
+                    <!-- Tools & Software -->
+                    <div class="skill-card-new">
+                        <div class="skill-card-top skill-card-top--sky">
+                            <div class="skill-icon-wrap skill-icon-wrap--sky"><i class="fas fa-tools"></i></div>
+                            <h4>Tools &amp; Software</h4>
                         </div>
-                        <div class="skill-tags">
-                            <span>Microsoft Office</span>
-                        </div>
+                        <ul class="skill-list">
+                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Microsoft Office Suite</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Excel &amp; Data Analysis</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>CRM Software</li>
+                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Report Writing &amp; Documentation</li>
+                        </ul>
                     </div>
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <div class="skill-icon skill-icon--green"><i class="fas fa-language"></i></div>
-                            <div>
-                                <h4>Languages</h4>
-                            </div>
+
+                    <!-- Languages -->
+                    <div class="skill-card-new">
+                        <div class="skill-card-top skill-card-top--mint">
+                            <div class="skill-icon-wrap skill-icon-wrap--mint"><i class="fas fa-language"></i></div>
+                            <h4>Languages</h4>
                         </div>
-                        <div class="skill-tags">
-                            <span>Burmese — Native</span><span>English — Professional</span><span>Turkish — Learning</span><span>Japanese — N4</span>
-                        </div>
+                        <ul class="lang-list">
+                            <li class="lang-row">
+                                <span class="lang-badge lang-badge--native">Native</span>
+                                <span>Burmese</span>
+                            </li>
+                            <li class="lang-row">
+                                <span class="lang-badge lang-badge--pro">Professional</span>
+                                <span>English</span>
+                            </li>
+                            <li class="lang-row">
+                                <span class="lang-badge lang-badge--learning">Learning</span>
+                                <span>Turkish</span>
+                            </li>
+                            <li class="lang-row">
+                                <span class="lang-badge lang-badge--n4">JLPT N4</span>
+                                <span>Japanese</span>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Projects -->
-        <section id="section3" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Portfolio</span>
-                    <h2>Projects &amp; Work</h2>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <div class="filter-buttons">
-                            <button class="btn filter-btn active" data-filter="all">All</button>
-                            <button class="btn filter-btn" data-filter="electrical">Electrical</button>
-                            <button class="btn filter-btn" data-filter="management">Management</button>
-                            <button class="btn filter-btn" data-filter="academic">Academic</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 portfolio-grid">
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-01.jpg" alt="Power Distribution Upgrade" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-01.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Electrical</span>
-                                <h4>Power Distribution Upgrade</h4>
-                                <p>LV switchgear replacement and load balancing across 3 CMHL retail outlets.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="management">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-02.jpg" alt="Energy Audit" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-02.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Management</span>
-                                <h4>Facility Energy Audit</h4>
-                                <p>Comprehensive energy audit identifying 18% reduction potential in operational costs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-03.jpg" alt="Backup Power" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-03.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Electrical</span>
-                                <h4>Generator &amp; UPS Installation</h4>
-                                <p>Designed and supervised backup power system ensuring 100% uptime for critical facility.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="management">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-04.jpg" alt="KPI Dashboard" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-04.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Management</span>
-                                <h4>Maintenance KPI Dashboard</h4>
-                                <p>Reporting system tracking maintenance KPIs for senior leadership across multiple sites.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="academic">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-05.jpg" alt="MBA Case Study" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-05.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Academic</span>
-                                <h4>MBA Business Strategy Case</h4>
-                                <p>Strategic analysis case study on operational improvement for utilities companies.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 portfolio-item" data-category="electrical">
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
-                                <img src="assets/images/portfolio-06.jpg" alt="Safety Overhaul" class="img-fluid">
-                                <div class="portfolio-overlay"><a href="assets/images/portfolio-06.jpg" class="image-popup"><i class="fas fa-search-plus"></i></a></div>
-                            </div>
-                            <div class="portfolio-info">
-                                <span class="portfolio-tag">Electrical</span>
-                                <h4>Electrical Safety Overhaul</h4>
-                                <p>Compliance and safety overhaul achieving full regulatory certification for 5 sites.</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -579,10 +518,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     
-    <!-- Magnific Popup -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-    
     <!-- Custom JS -->
     <script src="js/script.js"></script>
 
@@ -605,16 +540,16 @@
 
         function rand(a, b) { return Math.random() * (b - a) + a; }
 
-        /* ── Petal colours \u2014 blue, periwinkle, lavender, violet palette ── */
+        /* ── Petal colours — soft lavender-rose palette for light background ── */
         var PETAL_COLORS = [
-            'rgba(168,188,238,A)', // soft periwinkle
-            'rgba(108,140,232,A)', // sky blue
-            'rgba(152,136,212,A)', // lavender
-            'rgba(106, 85,200,A)', // deep violet
-            'rgba(200,210,255,A)', // pale ice blue
-            'rgba(140,160,230,A)', // medium periwinkle
-            'rgba(180,170,240,A)', // soft lilac
-            'rgba(120,148,240,A)', // bright periwinkle
+            'rgba(180,155,225,A)', // soft lavender
+            'rgba(215,165,205,A)', // mauve pink
+            'rgba(200,145,185,A)', // dusty rose-lavender
+            'rgba(155,135,215,A)', // periwinkle
+            'rgba(230,200,240,A)', // pale lilac
+            'rgba(195,160,220,A)', // medium lilac
+            'rgba(235,175,205,A)', // soft blush
+            'rgba(170,160,230,A)', // blue lavender
         ];
 
         /* ── Draw one 5-petal flower centred at (0,0), size = petal length ── */
@@ -673,9 +608,9 @@
             p.sway    = rand(0, Math.PI * 2);
             p.swaySpd = rand(0.006, 0.018);
             p.swayAmt = rand(0.4, 1.1);
-            p.alpha   = rand(0.30, 0.70);
+            p.alpha   = rand(0.10, 0.28);
             p.colorRaw = PETAL_COLORS[ci];
-            p.inner   = 'rgba(255,240,245,' + rand(0.55, 0.90) + ')';
+            p.inner   = 'rgba(255,240,250,' + rand(0.45, 0.80) + ')';
         }
         for (var i = 0; i < NUM_PETALS; i++) {
             petals.push({});
@@ -739,7 +674,7 @@
                     : ratio > 0.65
                         ? (1 - ratio) / 0.35
                         : 1.0;
-                alpha *= 0.75;
+                alpha *= 0.55; // subtle on light background
 
                 if (s.life >= s.maxLife) spawnSpark(s);
 
