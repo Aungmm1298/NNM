@@ -2128,3 +2128,53 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     .form-control    { padding: 10px 13px; font-size: 0.88rem; }
     #contact-submit  { width: 100%; justify-content: center; }
 }
+
+/* ----------------------------------------
+   24. Back to Top Button
+---------------------------------------- */
+#back-to-top {
+    position: fixed;
+    bottom: 36px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 6px 24px rgba(74, 106, 138, 0.40);
+    opacity: 0;
+    transform: translateY(20px) scale(0.85);
+    transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+    z-index: 8999;
+    pointer-events: none;
+}
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+#back-to-top:hover {
+    background: var(--accent-dark);
+    transform: translateY(-4px) scale(1.08);
+}
+
+/* ----------------------------------------
+   25. Typewriter Cursor
+---------------------------------------- */
+.typewriter-text::after {
+    content: '|';
+    color: var(--accent);
+    font-weight: 300;
+    animation: twBlink 0.75s step-end infinite;
+    margin-left: 1px;
+}
+@keyframes twBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}

@@ -78,6 +78,12 @@
             { sel: '.project-detail',         dir: 'from-up',    stagger: true  },
             { sel: '.contact-card',           dir: 'from-up',    stagger: false },
             { sel: '.contact-form-wrap',      dir: 'from-up',    stagger: false },
+            { sel: '.about-stat-card',        dir: 'from-up',    stagger: true  },
+            { sel: '.highlight-card',         dir: 'from-up',    stagger: true  },
+            { sel: '.skill-card-new',         dir: 'from-up',    stagger: true  },
+            { sel: '.cert-card',              dir: 'from-up',    stagger: true  },
+            { sel: '.edu-card',               dir: 'from-up',    stagger: true  },
+            { sel: '.exp-content',            dir: 'from-left',  stagger: false },
         ];
 
         var staggerClasses = ['stagger-1','stagger-2','stagger-3','stagger-4','stagger-5','stagger-6'];
@@ -156,9 +162,91 @@
         if (e.key === 'Escape') closeNav();
     });
 
+    // ================================
+    // Typewriter — Hero Subtitle
+    // ================================
+    function initTypewriter() {
+        var el = document.querySelector('.hero-subtitle');
+        if (!el) return;
+        var phrases = [
+            'Electrical Power Engineering Graduate',
+            'MBA Candidate',
+            'CRM Specialist',
+            'Operations Professional'
+        ];
+        var phraseIdx = 0, charIdx = phrases[0].length, deleting = false, pauseTicks = 0;
+        el.textContent = phrases[0];
+        el.classList.add('typewriter-text');
+
+        function tick() {
+            var current = phrases[phraseIdx];
+            if (deleting) {
+                charIdx--;
+            } else {
+                charIdx++;
+            }
+            el.textContent = current.slice(0, charIdx);
+            var delay = deleting ? 42 : 88;
+            if (!deleting && charIdx === current.length) {
+                pauseTicks++;
+                if (pauseTicks < 18) { delay = 110; } else { deleting = true; pauseTicks = 0; }
+            } else if (deleting && charIdx === 0) {
+                deleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                delay = 380;
+            }
+            setTimeout(tick, delay);
+        }
+        setTimeout(tick, 2500);
+    }
+
+    // ================================
+    // Animated Stat Counters
+    // ================================
+    function initCounters() {
+        if (!('IntersectionObserver' in window)) return;
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                var el = entry.target;
+                var end = parseInt(el.dataset.count, 10);
+                var suffix = el.dataset.suffix || '';
+                var duration = 1600;
+                var startTs = null;
+                function step(ts) {
+                    if (!startTs) startTs = ts;
+                    var progress = Math.min((ts - startTs) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.round(end * eased) + suffix;
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+                obs.unobserve(el);
+            });
+        }, { threshold: 0.6 });
+        document.querySelectorAll('[data-count]').forEach(function(el) { obs.observe(el); });
+    }
+
+    // ================================
+    // Back to Top Button
+    // ================================
+    function initBackToTop() {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        window.addEventListener('scroll', function() {
+            btn.classList.toggle('visible', window.scrollY > 500);
+        });
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     $(document).ready(function() {
-        updateProgress(); // initialise on load (handles mid-page refresh)
+        updateProgress();
         initReveal();
+        initTypewriter();
+        initCounters();
+        initBackToTop();
     });
-    
+
 })($);
