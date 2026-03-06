@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naing Naing Maw — Electrical Engineer &amp; MBA Candidate</title>
-    
+    <title>Naing Naing Maw â€” Electrical Engineer &amp; MBA Candidate</title>
+
+    <!-- Restore saved theme immediately to prevent flash -->
+    <script>(function(){var t=localStorage.getItem('portfolio-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}());</script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link rel="icon" href="data:,">
 
@@ -31,459 +34,40 @@
     <div class="bg-orb bg-orb-3" aria-hidden="true"></div>
 
     <canvas id="particle-canvas"></canvas>
+
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
                 <span class="brand-name">Naing Naing Maw</span>
-                <span class="brand-title">Electrical Power Engineer & Business Administration</span>
+                <span class="brand-title">Electrical Power Engineer &amp; Business Administration</span>
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
-            <nav class="main-nav" aria-label="Main navigation">
-                <a class="nav-link active" href="#section1"><i class="fas fa-user"></i><span>About</span></a>
-                <a class="nav-link" href="#section-exp"><i class="fas fa-briefcase"></i><span>Experience</span></a>
-                <a class="nav-link" href="#section2"><i class="fas fa-tools"></i><span>Skills</span></a>
-                <a class="nav-link" href="#section10"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
-                <a class="nav-link" href="#section9"><i class="fas fa-award"></i><span>Certifications</span></a>
-                <a class="nav-link" href="#section6"><i class="fas fa-envelope"></i><span>Contact</span></a>
-                <a href="#section6" class="nav-mobile-cta">Contact Me <i class="fas fa-arrow-right"></i></a>
-            </nav>
+            <!-- Nav links rendered by js/render.js -->
+            <nav class="main-nav" id="main-nav" aria-label="Main navigation"></nav>
         </div>
     </header>
 
-    <main class="main-content">
-        <!-- Section 1: About Me -->
-        <section id="section1" class="section hero-section">
-            <div class="container">
-                <div class="hero">
-                    <div class="hero-text">
-                        <h1>Naing <span class="name-accent">Naing Maw</span></h1>
-                        <p class="hero-subtitle">Electrical Power Engineer &amp; MBA Candidate</p>
-                        <p class="hero-lead">Electrical Power Engineering graduate with hands-on experience in power systems and facilities management. Currently advancing into business leadership through an MBA at Beykent University, Istanbul.</p>
-                        <div class="hero-actions">
-                            <a href="#section6" class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp; Contact Me</a>
-                            <a href="#section-exp" class="btn btn-outline">View Experience</a>
-                            <a href="assets/Naing_Naing_Maw_CV.pdf" class="btn btn-cv" download><i class="fas fa-download"></i>&nbsp; Download CV</a>
-                        </div>
-                        <div class="hero-metrics">
-                            <div>
-                                <h3 data-count="5" data-suffix="+">5+</h3>
-                                <p>Years Exp.</p>
-                            </div>
-                            <div>
-                                <h3 data-count="4" data-suffix="+">4+</h3>
-                                <p>Industries</p>
-                            </div>
-                            <div>
-                                <h3>MBA</h3>
-                                <p>In Progress</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-photo-only">
-                        <div class="profile-photo-ring">
-                            <div class="profile-photo-frame">
-                                <img src="Photos/NNM.jpg" alt="Naing Naing Maw">
-                            </div>
-                        </div>
-                        <div class="hero-info-chips">
-                            <div class="info-chip"><i class="fas fa-map-marker-alt"></i><span>Istanbul, Turkey</span></div>
-                            <div class="info-chip"><i class="fas fa-university"></i><span>Beykent University</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-block">
-                    <div class="section-heading">
-                        <span class="section-eyebrow">Who I Am</span>
-                        <h2>About Me</h2>
-                    </div>
-                    <div class="about-content">
-                        <div class="about-bio-text">
-                            <div class="about-chips">
-                                <span class="about-chip"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                <span class="about-chip"><i class="fas fa-bolt"></i> Power Engineer</span>
-                                <span class="about-chip"><i class="fas fa-graduation-cap"></i> MBA Candidate</span>
-                            </div>
-                            <p>I am an Electrical Power Engineering graduate with experience spanning engineering, operations, quality control, and customer relationship management. Starting my career as an intern at Paung Laung Underground Hydropower Plant, I progressed through site engineering and operations roles in Myanmar before relocating to Istanbul.</p>
-                            <p>I have gained strong operational and customer-focused experience through roles at City Mart Holding Limited (CMHL), Facto Investments, Latonix, and currently as a CRM Specialist at Lavixo. My background uniquely combines technical engineering expertise with business operations and people skills — now being deepened through an MBA at Beykent University.</p>
-                        </div>
-                        <div class="about-stats-col">
-                            <div class="about-stat-card">
-                                <div class="stat-icon stat-icon--accent"><i class="fas fa-briefcase"></i></div>
-                                <div>
-                                    <h3 data-count="5" data-suffix="+">5+</h3>
-                                    <p>Years of Experience</p>
-                                </div>
-                            </div>
-                            <div class="about-stat-card">
-                                <div class="stat-icon stat-icon--rose"><i class="fas fa-industry"></i></div>
-                                <div>
-                                    <h3 data-count="4" data-suffix="+">4+</h3>
-                                    <p>Industries Worked In</p>
-                                </div>
-                            </div>
-                            <div class="about-stat-card">
-                                <div class="stat-icon stat-icon--sky"><i class="fas fa-flag"></i></div>
-                                <div>
-                                    <h3 data-count="4">4</h3>
-                                    <p>Languages</p>
-                                </div>
-                            </div>
-                            <div class="about-stat-card">
-                                <div class="stat-icon stat-icon--mint"><i class="fas fa-graduation-cap"></i></div>
-                                <div>
-                                    <h3>MBA</h3>
-                                    <p>In Progress</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="main-content" id="main-content">
+        <!-- All dynamic sections injected by js/render.js -->
+        <section id="section1"          class="section hero-section"></section>
+        <section id="section-highlights" class="section alt-section"></section>
+        <section id="section-exp"        class="section alt-section"></section>
+        <section id="section9"           class="section alt-section"></section>
+        <section id="section10"          class="section"></section>
+        <section id="section2"           class="section alt-section"></section>
 
-        <!-- Key Highlights -->
-        <section id="section-highlights" class="section alt-section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Career Snapshot</span>
-                    <h2>Key Highlights</h2>
-                </div>
-                <div class="highlights-grid">
-                    <div class="highlight-card highlight-card--accent">
-                        <div class="hl-icon hl-icon--accent"><i class="fas fa-bolt"></i></div>
-                        <h4>Power Engineering Roots</h4>
-                        <p>B.Eng in Electrical Power Engineering from Technological University Magway — specialised in power systems, circuit theory &amp; electrical machines.</p>
-                    </div>
-                    <div class="highlight-card highlight-card--rose">
-                        <div class="hl-icon hl-icon--rose"><i class="fas fa-water"></i></div>
-                        <h4>Hydropower Experience</h4>
-                        <p>Gained hands-on experience at Paung Laung Underground Hydropower Plant — engineering fieldwork in live power generation environments.</p>
-                    </div>
-                    <div class="highlight-card highlight-card--sky">
-                        <div class="hl-icon hl-icon--sky"><i class="fas fa-hard-hat"></i></div>
-                        <h4>Site Engineering</h4>
-                        <p>Junior Site Engineer at Wint Htel San Construction — coordinated on-site electrical work for construction and interior decoration projects.</p>
-                    </div>
-                    <div class="highlight-card highlight-card--mint">
-                        <div class="hl-icon hl-icon--mint"><i class="fas fa-store"></i></div>
-                        <h4>Operations Leadership</h4>
-                        <p>Operation Supervisor at CMHL (City Mart Holding) — led facility engineering, preventive maintenance, and safety compliance across multiple retail sites.</p>
-                    </div>
-                    <div class="highlight-card highlight-card--gold">
-                        <div class="hl-icon hl-icon--gold"><i class="fas fa-chart-line"></i></div>
-                        <h4>CRM &amp; QC Expertise</h4>
-                        <p>Quality Control Analyst and CRM Administrator at Facto Investments — bringing data discipline and customer relationship skills to business operations.</p>
-                    </div>
-                    <div class="highlight-card highlight-card--plum">
-                        <div class="hl-icon hl-icon--plum"><i class="fas fa-graduation-cap"></i></div>
-                        <h4>MBA Candidate</h4>
-                        <p>Currently pursuing MBA at Beykent University Istanbul — bridging engineering expertise with strategic business and international management knowledge.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Work Experience -->
-        <section id="section-exp" class="section alt-section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Career</span>
-                    <h2>Work Experience</h2>
-                </div>
-                <div class="exp-timeline">
-
-                    <!-- CRM Specialist - Lavixo -->
-                    <div class="exp-item">
-                        <div class="exp-dot exp-dot--current"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Customer Relationship Management Specialist</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Lavixo</p>
-                                </div>
-                                <span class="exp-badge exp-badge--current">Current Role</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Mar 2026 – Present &nbsp;·&nbsp; Istanbul, Turkey</span>
-                            <div class="exp-tags">
-                                <span>Customer Relationship Management (CRM)</span><span>Microsoft Office</span><span>Customer Service</span><span>General office work</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Customer Support Specialist - Latonix -->
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Customer Support Specialist</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Latonix</p>
-                                </div>
-                                <span class="exp-badge">Full-time</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Aug 2025 – Feb 2026 &nbsp;·&nbsp; Istanbul, Turkey</span>
-                            <div class="exp-tags">
-                                <span>Customer Service</span><span>Microsoft Office</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- QC Analyst / CRM Admin - Facto Investments -->
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Quality Control Analyst / CRM Administrator</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Facto Investments</p>
-                                </div>
-                                <span class="exp-badge">Full-time</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; May 2024 – Jul 2025 &nbsp;·&nbsp; Istanbul, Turkey</span>
-                            <div class="exp-tags">
-                                <span>Quality Control</span><span>Microsoft Office</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Operation Supervisor - CMHL -->
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Operation Supervisor</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; CMHL — City Mart Holding Limited</p>
-                                </div>
-                                <span class="exp-badge">Full-time</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Jan 2023 – Feb 2024 &nbsp;·&nbsp; Yangon, Myanmar</span>
-                            <div class="exp-tags">
-                                <span>General Office Work</span><span>Site Coordination</span><span>Engineering Support</span><span>Engineering</span><span>Microsoft Office</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Junior Site Engineer - Wint Htel San -->
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Junior Site Engineer</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Wint Htel San Construction &amp; Interior Decoration Co., Ltd</p>
-                                </div>
-                                <span class="exp-badge">Full-time</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Dec 2019 – Feb 2021 &nbsp;·&nbsp; Yangon, Myanmar</span>
-                            <div class="exp-tags">
-                                <span>Site Engineer</span><span>Construction</span><span>Site Coordination</span><span>General Office Work</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Summer Intern - Paung Laung -->
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <div>
-                                    <h4>Summer Intern</h4>
-                                    <p class="exp-company"><i class="fas fa-building"></i>&nbsp; Paung Laung Underground Hydropower Plants</p>
-                                </div>
-                                <span class="exp-badge exp-badge--intern">Internship</span>
-                            </div>
-                            <span class="exp-period"><i class="far fa-calendar-alt"></i>&nbsp; Mar 2019 – May 2019 &nbsp;·&nbsp; Myanmar</span>
-                            <div class="exp-tags">
-                                <span>Power Generation</span><span>Electrical Engineering</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Certifications / Awards -->
-        <section id="section9" class="section alt-section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Recognition</span>
-                    <h2>Certifications &amp; Awards</h2>
-                </div>
-                <div class="cert-grid">
-
-                    
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="section10" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Academic Background</span>
-                    <h2>Education</h2>
-                </div>
-                <div class="edu-cards">
-
-                    <!-- MBA -->
-                    <div class="edu-card edu-card--active">
-                        <div class="edu-card-bg-year">MBA</div>
-                        <div class="edu-card-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div class="edu-card-body">
-                            <span class="edu-card-period">2024 – Present</span>
-                            <h4>Istanbul Beykent University</h4>
-                            <p class="edu-card-degree">Master of Business Administration (MBA)</p>
-                            <div class="edu-card-footer">
-                                <span class="edu-card-location"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                <span class="edu-card-badge edu-card-badge--active">In Progress</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- B.Eng -->
-                    <div class="edu-card edu-card--done">
-                        <div class="edu-card-bg-year">B.ENG</div>
-                        <div class="edu-card-icon"><i class="fas fa-university"></i></div>
-                        <div class="edu-card-body">
-                            <span class="edu-card-period">2013 – 2019</span>
-                            <h4>Technological University, Magway</h4>
-                            <p class="edu-card-degree">Bachelor of Engineering — Electrical Power Engineering</p>
-                            <div class="edu-card-footer">
-                                <span class="edu-card-location"><i class="fas fa-map-marker-alt"></i> Magway, Myanmar</span>
-                                <span class="edu-card-badge edu-card-badge--done">Completed</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <!-- Skills -->
-        <section id="section2" class="section alt-section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-eyebrow">Expertise</span>
-                    <h2>Skills &amp; Competencies</h2>
-                </div>
-                <div class="skills-grid-new">
-
-                    <!-- Electrical & Engineering -->
-                    <div class="skill-card-new">
-                        <div class="skill-card-top skill-card-top--accent">
-                            <div class="skill-icon-wrap"><i class="fas fa-bolt"></i></div>
-                            <h4>Electrical &amp; Engineering</h4>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Power Generation &amp; Distribution</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Electrical Engineering</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Site Engineering &amp; Coordination</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Engineering Support</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Preventive Maintenance</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--accent"></span>Electrical Safety Compliance</li>
-                        </ul>
-                    </div>
-
-                    <!-- Customer & Operations -->
-                    <div class="skill-card-new">
-                        <div class="skill-card-top skill-card-top--rose">
-                            <div class="skill-icon-wrap skill-icon-wrap--rose"><i class="fas fa-users"></i></div>
-                            <h4>Customer &amp; Operations</h4>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Customer Relationship Management (CRM)</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Customer Service &amp; Support</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Quality Control &amp; Analysis</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Operations Supervision</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>General Office Administration</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--rose"></span>Construction Project Coordination</li>
-                        </ul>
-                    </div>
-
-                    <!-- Tools & Software -->
-                    <div class="skill-card-new">
-                        <div class="skill-card-top skill-card-top--sky">
-                            <div class="skill-icon-wrap skill-icon-wrap--sky"><i class="fas fa-tools"></i></div>
-                            <h4>Tools &amp; Software</h4>
-                        </div>
-                        <ul class="skill-list">
-                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Microsoft Office Suite</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Excel &amp; Data Analysis</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>CRM Software</li>
-                            <li class="skill-row"><span class="skill-dot skill-dot--sky"></span>Report Writing &amp; Documentation</li>
-                        </ul>
-                    </div>
-
-                    <!-- Languages -->
-                    <div class="skill-card-new">
-                        <div class="skill-card-top skill-card-top--mint">
-                            <div class="skill-icon-wrap skill-icon-wrap--mint"><i class="fas fa-language"></i></div>
-                            <h4>Languages</h4>
-                        </div>
-                        <ul class="lang-list">
-                            <li class="lang-row">
-                                <span class="lang-badge lang-badge--native">Native</span>
-                                <span>Burmese</span>
-                            </li>
-                            <li class="lang-row">
-                                <span class="lang-badge lang-badge--pro">Professional</span>
-                                <span>English</span>
-                            </li>
-                            <li class="lang-row">
-                                <span class="lang-badge lang-badge--learning">Learning</span>
-                                <span>Turkish</span>
-                            </li>
-                            <li class="lang-row">
-                                <span class="lang-badge lang-badge--n4">JLPT N4</span>
-                                <span>Japanese</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 6: Contact Me -->
+        <!-- Contact: form is static HTML (required by supabase.js) -->
         <section id="section6" class="section alt-section">
             <div class="container">
                 <div class="section-heading">
                     <span class="section-eyebrow">Let's Connect</span>
                     <h2>Contact Me</h2>
                 </div>
-                
-                <div class="contact-card">
-                    <div>
-                        <h4>Get In Touch</h4>
-                        <p>Available for engineering roles, consulting projects, or MBA-related opportunities. Feel free to reach out through any channel below.</p>
-                        <div class="contact-actions">
-                            <a href="mailto:naingmaw154@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i>&nbsp; Email Me</a>
-                            <a href="https://wa.me/905074860797" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                            <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener" class="btn btn-linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                        </div>
-                        <a href="assets/Naing_Naing_Maw_CV.pdf" class="btn btn-cv mt-3" download><i class="fas fa-file-download"></i>&nbsp; Download CV / Résumé</a>
-                    </div>
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:naingmaw154@gmail.com"><span>naingmaw154@gmail.com</span></a>
-                            <button class="copy-email-btn" data-email="naingmaw154@gmail.com" title="Copy email address" aria-label="Copy email address"><i class="fas fa-copy"></i></button>
-                        </li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905074860797" target="_blank" rel="noopener"><span>Whatsapp</span></a></li>
-                        <li><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/naing-naing-maw-603919285" target="_blank" rel="noopener"><span>Linkedin</span></a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span>Istanbul, Turkey</span></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Form powered by Supabase -->
+                <!-- Contact card rendered by js/render.js -->
+                <div id="contact-card-mount"></div>
+                <!-- Contact form â€” static (supabase.js binds to these IDs) -->
                 <div class="contact-form-wrap mt-5">
                     <h4>Send a Message</h4>
                     <form id="contact-form" novalidate>
@@ -518,14 +102,18 @@
     <!-- Back to Top -->
     <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
 
+    <!-- Data + Renderer (load before jQuery so DOM is built first) -->
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    
-    <!-- Custom JS -->
+
+    <!-- Custom JS (interactions, dark mode, animations) -->
     <script src="js/script.js"></script>
 
     <!-- Supabase Contact Form -->
@@ -547,25 +135,22 @@
 
         function rand(a, b) { return Math.random() * (b - a) + a; }
 
-        /* ── Petal colours — soft lavender-rose palette for light background ── */
         var PETAL_COLORS = [
-            'rgba(180,155,225,A)', // soft lavender
-            'rgba(215,165,205,A)', // mauve pink
-            'rgba(200,145,185,A)', // dusty rose-lavender
-            'rgba(155,135,215,A)', // periwinkle
-            'rgba(230,200,240,A)', // pale lilac
-            'rgba(195,160,220,A)', // medium lilac
-            'rgba(235,175,205,A)', // soft blush
-            'rgba(170,160,230,A)', // blue lavender
+            'rgba(180,155,225,A)',
+            'rgba(215,165,205,A)',
+            'rgba(200,145,185,A)',
+            'rgba(155,135,215,A)',
+            'rgba(230,200,240,A)',
+            'rgba(195,160,220,A)',
+            'rgba(235,175,205,A)',
+            'rgba(170,160,230,A)',
         ];
 
-        /* ── Draw one 5-petal flower centred at (0,0), size = petal length ── */
         function drawFlower(size, clr, innerClr) {
             for (var i = 0; i < 5; i++) {
                 ctx.save();
                 ctx.rotate((i / 5) * Math.PI * 2 - Math.PI / 2);
                 ctx.beginPath();
-                /* Heart-shaped petal using two quadratic curves */
                 ctx.moveTo(0, 0);
                 ctx.quadraticCurveTo( size * 0.55, -size * 0.40,  0, -size);
                 ctx.quadraticCurveTo(-size * 0.55, -size * 0.40,  0,  0);
@@ -573,14 +158,12 @@
                 ctx.fill();
                 ctx.restore();
             }
-            /* Pale centre dot */
             ctx.beginPath();
             ctx.arc(0, 0, size * 0.16, 0, Math.PI * 2);
             ctx.fillStyle = innerClr;
             ctx.fill();
         }
 
-        /* ── Draw a 4-point sparkle star ── */
         function drawSparkle(size, alpha) {
             var arms = [size, size * 0.38, size, size * 0.38];
             ctx.beginPath();
@@ -593,105 +176,58 @@
             ctx.closePath();
             ctx.fillStyle = 'rgba(200,215,255,' + alpha + ')';
             ctx.fill();
-            /* Bright core */
             ctx.beginPath();
             ctx.arc(0, 0, size * 0.18, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(230,240,255,' + (alpha * 0.9) + ')';
             ctx.fill();
         }
 
-        /* ── Petals ── */
         var NUM_PETALS = 55;
         var petals = [];
         function spawnPetal(p, startY) {
             var ci = Math.floor(Math.random() * PETAL_COLORS.length);
-            p.x       = rand(-60, W + 60);
-            p.y       = startY !== undefined ? startY : rand(-H, 0);
-            p.size    = rand(8, 20);
-            p.speed   = rand(0.5, 1.5);
-            p.drift   = rand(-0.35, 0.35);
-            p.rot     = rand(0, Math.PI * 2);
-            p.rotSpd  = rand(-0.018, 0.018);
-            p.sway    = rand(0, Math.PI * 2);
-            p.swaySpd = rand(0.006, 0.018);
-            p.swayAmt = rand(0.4, 1.1);
-            p.alpha   = rand(0.10, 0.28);
-            p.colorRaw = PETAL_COLORS[ci];
-            p.inner   = 'rgba(255,240,250,' + rand(0.45, 0.80) + ')';
+            p.x = rand(-60, W + 60); p.y = startY !== undefined ? startY : rand(-H, 0);
+            p.size = rand(8, 20); p.speed = rand(0.5, 1.5); p.drift = rand(-0.35, 0.35);
+            p.rot = rand(0, Math.PI * 2); p.rotSpd = rand(-0.018, 0.018);
+            p.sway = rand(0, Math.PI * 2); p.swaySpd = rand(0.006, 0.018); p.swayAmt = rand(0.4, 1.1);
+            p.alpha = rand(0.10, 0.28); p.colorRaw = PETAL_COLORS[ci];
+            p.inner = 'rgba(255,240,250,' + rand(0.45, 0.80) + ')';
         }
-        for (var i = 0; i < NUM_PETALS; i++) {
-            petals.push({});
-            spawnPetal(petals[i], rand(0, H)); // fill screen initially
-        }
+        for (var i = 0; i < NUM_PETALS; i++) { petals.push({}); spawnPetal(petals[i], rand(0, H)); }
 
-        /* ── Sparkles ── */
         var NUM_SPARKS = 38;
         var sparks = [];
         function spawnSpark(s) {
-            s.x      = rand(0, W);
-            s.y      = rand(0, H);
-            s.size   = rand(3, 9);
-            s.life   = 0;
-            s.maxLife= rand(80, 160);
-            s.rot    = rand(0, Math.PI * 2);
-            s.rotSpd = rand(-0.04, 0.04);
-            s.vy     = rand(-0.15, -0.45);
-            s.vx     = rand(-0.1, 0.1);
+            s.x = rand(0, W); s.y = rand(0, H); s.size = rand(3, 9);
+            s.life = 0; s.maxLife = rand(80, 160);
+            s.rot = rand(0, Math.PI * 2); s.rotSpd = rand(-0.04, 0.04);
+            s.vy = rand(-0.15, -0.45); s.vx = rand(-0.1, 0.1);
         }
         for (var i = 0; i < NUM_SPARKS; i++) {
-            sparks.push({});
-            spawnSpark(sparks[i]);
-            sparks[i].life = Math.floor(Math.random() * sparks[i].maxLife); // stagger
+            sparks.push({}); spawnSpark(sparks[i]);
+            sparks[i].life = Math.floor(Math.random() * sparks[i].maxLife);
         }
 
-        /* ── Main loop ── */
         function loop() {
             ctx.clearRect(0, 0, W, H);
-
-            /* ── Draw petals ── */
             for (var i = 0; i < petals.length; i++) {
                 var p = petals[i];
-                p.sway += p.swaySpd;
-                p.rot  += p.rotSpd;
-                p.x    += p.drift + Math.sin(p.sway) * p.swayAmt;
-                p.y    += p.speed;
-
+                p.sway += p.swaySpd; p.rot += p.rotSpd;
+                p.x += p.drift + Math.sin(p.sway) * p.swayAmt; p.y += p.speed;
                 if (p.y > H + 30) spawnPetal(p);
-
-                var clr = p.colorRaw.replace('A', p.alpha);
-                ctx.save();
-                ctx.translate(p.x, p.y);
-                ctx.rotate(p.rot);
-                ctx.globalAlpha = 1;
-                drawFlower(p.size, clr, p.inner);
+                ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = 1;
+                drawFlower(p.size, p.colorRaw.replace('A', p.alpha), p.inner);
                 ctx.restore();
             }
-
-            /* ── Draw sparkles ── */
             for (var i = 0; i < sparks.length; i++) {
                 var s = sparks[i];
-                s.life++;
-                s.x += s.vx;
-                s.y += s.vy;
-                s.rot += s.rotSpd;
-
+                s.life++; s.x += s.vx; s.y += s.vy; s.rot += s.rotSpd;
                 var ratio = s.life / s.maxLife;
-                var alpha = ratio < 0.20
-                    ? ratio / 0.20
-                    : ratio > 0.65
-                        ? (1 - ratio) / 0.35
-                        : 1.0;
-                alpha *= 0.55; // subtle on light background
-
+                var alpha = (ratio < 0.20 ? ratio / 0.20 : ratio > 0.65 ? (1 - ratio) / 0.35 : 1.0) * 0.55;
                 if (s.life >= s.maxLife) spawnSpark(s);
-
-                ctx.save();
-                ctx.translate(s.x, s.y);
-                ctx.rotate(s.rot);
-                drawSparkle(s.size, alpha);
-                ctx.restore();
+                ctx.save(); ctx.translate(s.x, s.y); ctx.rotate(s.rot);
+                drawSparkle(s.size, alpha); ctx.restore();
             }
-
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);

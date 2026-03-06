@@ -5,8 +5,8 @@
 (function($) {
     'use strict';
     
-    // Smooth Scrolling for Navigation Links
-    $('.main-nav a[href^="#"]').on('click', function(e) {
+    // Smooth Scrolling for Navigation Links (delegated — nav rendered by render.js)
+    $('.main-nav').on('click', 'a[href^="#"]', function(e) {
         e.preventDefault();
         var target = $(this.getAttribute('href'));
         if (target.length) {
@@ -50,7 +50,6 @@
         });
     });
 
-});
     // ================================
     // Scroll Reveal – IntersectionObserver
     // ================================
@@ -149,8 +148,8 @@
         $nav.hasClass('is-open') ? closeNav() : openNav();
     });
 
-    // Close when a link or mobile CTA is tapped
-    $nav.find('.nav-link, .nav-mobile-cta').on('click', function() { closeNav(); });
+    // Close when a link or mobile CTA is tapped (delegated — nav rendered by render.js)
+    $nav.on('click', '.nav-link, .nav-mobile-cta', function() { closeNav(); });
 
     // Close when clicking anywhere outside the nav/toggle
     $(document).on('click', function(e) {
@@ -168,12 +167,10 @@
     function initTypewriter() {
         var el = document.querySelector('.hero-subtitle');
         if (!el) return;
-        var phrases = [
-            'Electrical Power Engineering Graduate',
-            'MBA Candidate',
-            'CRM Specialist',
-            'Operations Professional'
-        ];
+        // Use phrases from data.js if available, otherwise fallback
+        var phrases = (typeof PortfolioData !== 'undefined' && PortfolioData.profile.typingPhrases)
+            ? PortfolioData.profile.typingPhrases
+            : ['Electrical Power Engineering Graduate', 'MBA Candidate', 'CRM Specialist', 'Operations Professional'];
         var phraseIdx = 0, charIdx = phrases[0].length, deleting = false, pauseTicks = 0;
         el.textContent = phrases[0];
         el.classList.add('typewriter-text');
@@ -242,6 +239,30 @@
     }
 
     // ================================
+    // Dark / Light Mode Toggle
+    // ================================
+    function initDarkMode() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            var icon = btn.querySelector('i');
+            if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('portfolio-theme', theme);
+        }
+        btn.addEventListener('click', function () {
+            var current = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+        // Sync icon with saved state on load
+        var saved = localStorage.getItem('portfolio-theme') || 'light';
+        if (saved === 'dark') {
+            var icon = btn.querySelector('i');
+            if (icon) icon.className = 'fas fa-sun';
+        }
+    }
+
+    // ================================
     // Copy Email Button
     // ================================
     function initCopyEmail() {
@@ -279,6 +300,8 @@
         initCounters();
         initBackToTop();
         initCopyEmail();
+        initDarkMode();
+        window._portfolioReveal = initReveal;
     });
 
 })($);

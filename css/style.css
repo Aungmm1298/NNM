@@ -2215,3 +2215,103 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
 }
+
+/* ----------------------------------------
+   26. Dark Mode — Variable Overrides
+---------------------------------------- */
+[data-theme="dark"] {
+    --bg:          #111820;
+    --bg-alt:      #151e28;
+    --surface:     #1a2434;
+    --surface-2:   #1f2b3d;
+    --surface-3:   #1c2739;
+    --text:        #e4ecf4;
+    --text-sub:    #a8bece;
+    --text-muted:  #7590a8;
+    --border:      rgba(160, 190, 220, 0.14);
+    --border-med:  rgba(160, 190, 220, 0.24);
+    --border-dim:  rgba(160, 190, 220, 0.08);
+    --glass:       rgba(26, 36, 52, 0.92);
+    --glass-border:rgba(100, 140, 180, 0.20);
+    --shadow-sm:   0 6px 28px rgba(0, 10, 25, 0.32);
+    --shadow-md:   0 14px 48px rgba(0, 10, 25, 0.42);
+}
+
+[data-theme="dark"] body {
+    background: linear-gradient(145deg, #111820 0%, #141c28 40%, #131a24 70%, #121922 100%);
+    background-attachment: fixed;
+}
+
+[data-theme="dark"] body::before {
+    background:
+        radial-gradient(ellipse 60% 42% at  2%  8%, rgba(74, 106, 138, 0.08), transparent 65%),
+        radial-gradient(ellipse 50% 38% at 98%  6%, rgba(94, 137, 168, 0.07), transparent 60%),
+        radial-gradient(ellipse 48% 50% at 50% 96%, rgba(61, 122, 122, 0.07), transparent 65%);
+}
+
+/* Smooth cross-fade when toggling theme */
+html {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ----------------------------------------
+   27. Theme Toggle Button
+---------------------------------------- */
+#theme-toggle {
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    width:  34px;
+    height: 34px;
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+}
+#theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-pale);
+}
+
+/* ----------------------------------------
+   28. Experience Filter Buttons
+---------------------------------------- */
+.exp-filter {
+    display:        flex;
+    gap:            8px;
+    margin-bottom:  28px;
+    flex-wrap:      wrap;
+}
+.exp-filter-btn {
+    font-family:    'DM Sans', sans-serif;
+    font-size:      0.78rem;
+    font-weight:    600;
+    letter-spacing: 0.5px;
+    padding:        6px 18px;
+    border-radius:  999px;
+    border:         1.5px solid var(--border);
+    background:     transparent;
+    color:          var(--text-muted);
+    cursor:         pointer;
+    transition:     color 0.2s, border-color 0.2s, background 0.2s;
+}
+.exp-filter-btn:hover {
+    color:        var(--accent);
+    border-color: var(--accent);
+    background:   var(--accent-pale);
+}
+.exp-filter-btn.active {
+    background:   var(--accent);
+    color:        #fff;
+    border-color: var(--accent);
+}
+.exp-empty {
+    color:      var(--text-muted);
+    font-size:  0.9rem;
+    padding:    20px 0;
+}
