@@ -1464,9 +1464,9 @@ a:hover { color: var(--accent-dark); text-decoration: none; }
     color: var(--text-sub);
     padding: 6px 10px;
     border-radius: 10px;
-    transition: background 0.2s;
+    transition: background 0.2s, padding-left 0.22s;
 }
-.skill-row:hover { background: var(--surface-2); color: var(--text); }
+.skill-row:hover { background: var(--surface-2); color: var(--text); padding-left: 16px; }
 
 .skill-dot {
     width: 7px; height: 7px;
@@ -1800,8 +1800,8 @@ a:hover { color: var(--accent-dark); text-decoration: none; }
 .form-control::placeholder { color: var(--text-muted); }
 
 .form-control:focus {
-    border-color: rgba(124, 92, 191, 0.45);
-    box-shadow: 0 0 0 4px rgba(124, 92, 191, 0.08);
+    border-color: rgba(74, 106, 138, 0.55);
+    box-shadow: 0 0 0 4px rgba(74, 106, 138, 0.10);
     background: var(--surface);
 }
 
@@ -2162,6 +2162,43 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 #back-to-top:hover {
     background: var(--accent-dark);
     transform: translateY(-4px) scale(1.08);
+}
+
+/* ----------------------------------------
+   26. Copy Email Button
+---------------------------------------- */
+.contact-details li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.copy-email-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.15s;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+.copy-email-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(74, 106, 138, 0.09);
+    transform: scale(1.06);
+}
+.copy-email-btn.copied {
+    color: #3aaa6d;
+    border-color: rgba(58, 170, 109, 0.45);
+    background: rgba(58, 170, 109, 0.09);
 }
 
 /* ----------------------------------------

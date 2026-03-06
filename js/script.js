@@ -241,12 +241,44 @@
         });
     }
 
+    // ================================
+    // Copy Email Button
+    // ================================
+    function initCopyEmail() {
+        function showCopied(btn) {
+            btn.classList.add('copied');
+            btn.querySelector('i').className = 'fas fa-check';
+            setTimeout(function() {
+                btn.classList.remove('copied');
+                btn.querySelector('i').className = 'fas fa-copy';
+            }, 2200);
+        }
+        document.querySelectorAll('.copy-email-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var email = btn.dataset.email;
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(email).then(function() { showCopied(btn); });
+                } else {
+                    var ta = document.createElement('textarea');
+                    ta.value = email;
+                    ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0;';
+                    document.body.appendChild(ta);
+                    ta.focus();
+                    ta.select();
+                    try { document.execCommand('copy'); showCopied(btn); } catch(e) {}
+                    document.body.removeChild(ta);
+                }
+            });
+        });
+    }
+
     $(document).ready(function() {
         updateProgress();
         initReveal();
         initTypewriter();
         initCounters();
         initBackToTop();
+        initCopyEmail();
     });
 
 })($);
