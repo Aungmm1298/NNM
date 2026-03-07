@@ -181,6 +181,7 @@ var PortfolioI18n = (function () {
         if (btn) {
             btn.querySelectorAll('.lang-opt').forEach(function (opt) {
                 opt.classList.toggle('active', opt.dataset.lang === lang);
+                opt.setAttribute('aria-pressed', opt.dataset.lang === lang);
             });
         }
 
@@ -204,8 +205,9 @@ var PortfolioI18n = (function () {
         toggle.setAttribute('role', 'group');
         toggle.setAttribute('aria-label', 'Language selection');
         toggle.innerHTML =
-            '<button class="lang-opt' + (_lang === 'en' ? ' active' : '') + '" data-lang="en" aria-pressed="' + (_lang === 'en') + '">EN</button>'
-            + '<button class="lang-opt' + (_lang === 'tr' ? ' active' : '') + '" data-lang="tr" aria-pressed="' + (_lang === 'tr') + '">TR</button>';
+            '<span class="lang-opt' + (_lang === 'en' ? ' active' : '') + '" data-lang="en" role="button" tabindex="0" aria-pressed="' + (_lang === 'en') + '">EN</span>'
+            + '<span class="lang-sep" aria-hidden="true">&middot;</span>'
+            + '<span class="lang-opt' + (_lang === 'tr' ? ' active' : '') + '" data-lang="tr" role="button" tabindex="0" aria-pressed="' + (_lang === 'tr') + '">TR</span>';
 
         headerInner.appendChild(toggle);
 
@@ -213,6 +215,13 @@ var PortfolioI18n = (function () {
             var btn = e.target.closest('.lang-opt');
             if (!btn) return;
             setLang(btn.dataset.lang);
+        });
+
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                var btn = e.target.closest('.lang-opt');
+                if (btn) { e.preventDefault(); setLang(btn.dataset.lang); }
+            }
         });
     }
 

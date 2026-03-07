@@ -2715,59 +2715,78 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 
 /* ============================================================
-   FEATURE 3 — Language Toggle (EN / TR)
+   FEATURE 3 — Language Toggle (EN / TR) — Individual pill borders
    #lang-toggle  .lang-opt
    ============================================================ */
 
-.lang-toggle {
+#lang-toggle.lang-toggle {
     display: inline-flex;
     align-items: center;
-    background: var(--surface-2);
-    border: 1.5px solid var(--border);
-    border-radius: 999px;
-    padding: 3px;
-    gap: 2px;
     flex-shrink: 0;
-    box-shadow: var(--shadow-xs);
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.lang-toggle:hover {
-    border-color: var(--border-med);
-    box-shadow: var(--shadow-sm);
-}
-
-.lang-opt {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    padding: 5px 13px;
+    padding: 0;
+    gap: 6px;
     border: none;
+    background: none;
+}
+
+#lang-toggle .lang-sep {
+    display: none;
+}
+
+#lang-toggle .lang-opt {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.71rem;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px 14px;
     border-radius: 999px;
+    border: 1.5px solid var(--border-med);
     background: transparent;
     color: var(--text-muted);
-    cursor: pointer;
-    transition: background 0.22s var(--ease-smooth), color 0.22s var(--ease-smooth), box-shadow 0.22s;
+    transition: border-color 0.2s ease, background 0.2s ease,
+                color 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
+    line-height: 1;
+    display: inline-block;
+    user-select: none;
 }
 
-.lang-opt:hover { color: var(--accent); }
-
-.lang-opt.active {
+#lang-toggle .lang-opt.active {
+    border-color: var(--accent);
     background: var(--accent);
     color: #fff;
-    box-shadow: 0 3px 12px rgba(74, 106, 138, 0.32);
+    box-shadow: 0 2px 10px rgba(74, 106, 138, 0.30);
 }
 
-/* Squeeze the header grid to fit the new toggle pill */
+#lang-toggle .lang-opt:hover:not(.active) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Header grid — desktop/tablet */
 .header-inner {
     grid-template-columns: auto 1fr auto auto;
 }
 
-/* On narrow screens keep it visible but compact */
-@media (max-width: 767px) {
-    .lang-toggle { padding: 2px; }
-    .lang-opt    { padding: 4px 10px; font-size: 0.68rem; }
+/* Mobile: fix toggle to top-right corner */
+@media (max-width: 991px) {
+    #lang-toggle.lang-toggle {
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        z-index: 9999;
+        gap: 5px;
+        background: rgba(228, 234, 242, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 4px 6px;
+        border-radius: 999px;
+    }
+    #lang-toggle .lang-opt {
+        font-size: 0.67rem;
+        padding: 4px 11px;
+    }
 }
 
