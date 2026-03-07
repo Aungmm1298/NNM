@@ -16,6 +16,8 @@ var PortfolioI18n = (function () {
             heroEyebrow:      'Welcome',
             heroTitle:        'Naing <span class="name-accent">Naing Maw</span>',
             heroLead:         'Electrical Power Engineering graduate with hands-on experience in power systems and facilities management. Currently advancing into business leadership through an MBA at Beykent University, Istanbul.',
+            bioPara1:         'I am an Electrical Power Engineering graduate with experience spanning engineering, operations, quality control, and customer relationship management. Starting my career as an intern at Paung Laung Underground Hydropower Plant, I progressed through site engineering and operations roles in Myanmar before relocating to Istanbul.',
+            bioPara2:         'I have gained strong operational and customer-focused experience through roles at City Mart Holding Limited (CMHL), Facto Investments, Latonix, and currently as a CRM Specialist at Lavixo. My background uniquely combines technical engineering expertise with business operations and people skills — now being deepened through an MBA at Beykent University.',
             aboutEyebrow:     'Who I Am',
             aboutTitle:       'About Me',
 
@@ -72,6 +74,8 @@ var PortfolioI18n = (function () {
             heroEyebrow:      'Hoş Geldiniz',
             heroTitle:        'Naing <span class="name-accent">Naing Maw</span>',
             heroLead:         'Güç sistemleri ve tesis yönetimi alanında deneyim sahibi Elektrik Güç Mühendisliği mezunu. Şu anda İstanbul Beykent Üniversitesi\'nde MBA yaparak iş dünyasına adım atıyor.',
+            bioPara1:         'Mühendislik, operasyon, kalite kontrol ve müşteri ilişkileri yönetimi alanlarında deneyim sahibi Elektrik Güç Mühendisliği mezunuyum. Kariyerime Paung Laung Yeraltı Hidroelektrik Santrali\'nde stajyer olarak başladım; Myanmar\'da saha mühendisliği ve operasyon pozisyonlarında ilerlemenin ardından İstanbul\'a taşındım.',
+            bioPara2:         'City Mart Holding Limited (CMHL), Facto Investments, Latonix bünyesinde ve şu anda Lavixo\'da CRM Uzmanı olarak güçlü operasyonel ve müşteri odaklı deneyim kazandım. Altyapım teknik mühendislik uzmanlığını iş operasyonları ve insani becerilerle benzersiz biçimde birleştiriyor — bu bilgi şu an Beykent Üniversitesi\'ndeki MBA programıyla daha da derinleştiriliyor.',
             aboutEyebrow:     'Ben Kimim',
             aboutTitle:       'Hakkımda',
 
